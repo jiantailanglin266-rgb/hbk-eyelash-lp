@@ -196,12 +196,22 @@ section{position:relative}
 .offer h2.title{color:#fff;margin:18px 0 10px}
 .price-card{max-width:480px;margin:46px auto 0;background:linear-gradient(180deg,#211e17,#19170f);border:1px solid rgba(203,181,145,.32);border-radius:14px;padding:46px 36px;position:relative}
 .price-card .plan{font-family:var(--label);letter-spacing:.28em;font-size:.72rem;text-transform:uppercase;color:var(--gold-light)}
-.price-card .was{font-size:.84rem;color:rgba(239,233,221,.6);text-decoration:line-through;margin-top:18px}
-.price-card .now{display:flex;align-items:flex-end;justify-content:center;gap:6px;margin:6px 0 4px}
-.price-card .now .yen{font-family:var(--serif);font-size:1.2rem;margin-bottom:14px}
-.price-card .now .num{font-family:var(--latin);font-weight:500;font-size:4.4rem;line-height:.9;color:#fff}
-.price-card .now .tax{font-size:.74rem;color:rgba(239,233,221,.6);margin-bottom:12px}
-.price-card .off{display:inline-block;background:var(--gold);color:#fff;font-size:.74rem;letter-spacing:.1em;padding:5px 16px;border-radius:999px;margin-bottom:8px}
+.price-card .was{font-size:.86rem;color:rgba(239,233,221,.72);margin-top:18px}
+.price-card .was s{text-decoration:line-through;text-decoration-color:rgba(239,233,221,.45)}
+.price-card .now{display:flex;align-items:flex-end;justify-content:center;gap:4px;margin:8px 0 2px}
+.price-card .now .yen{font-family:var(--serif);font-size:1.5rem;margin-bottom:12px}
+.price-card .now .num{font-family:var(--latin);font-weight:500;font-size:clamp(3rem,13vw,4.3rem);line-height:.9;color:#fff;letter-spacing:.01em}
+.price-card .now .tax{font-size:.74rem;color:rgba(239,233,221,.6);margin-bottom:14px;margin-left:2px}
+.price-card .cycle{font-size:.94rem;font-weight:500;color:var(--gold-light);margin:2px 0 2px}
+.price-card .off{display:inline-block;background:var(--gold);color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.06em;padding:6px 18px;border-radius:999px;margin-bottom:10px}
+.price-card .cta-price{margin-top:14px;font-size:.8rem;color:rgba(239,233,221,.72)}
+.price-card .cta-price b{font-family:var(--serif);color:#fff;font-size:1.02rem;margin:0 2px}
+.offer .sub-offer{font-size:.92rem;letter-spacing:.06em;color:var(--gold-light);margin-top:14px}
+.single-opt{max-width:480px;margin:16px auto 0;display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid rgba(239,233,221,.18);border-radius:10px;padding:16px 22px;color:rgba(239,233,221,.82);font-size:.86rem;position:relative;z-index:2}
+.single-opt b{font-family:var(--serif);font-size:1.08rem;color:#fff;font-weight:600;white-space:nowrap}
+.terms{max-width:580px;margin:32px auto 0;text-align:left;position:relative;z-index:2}
+.terms p{font-size:.73rem;line-height:1.9;color:rgba(239,233,221,.62);padding-left:1.15em;text-indent:-1.15em;margin-bottom:9px}
+.terms .tel{color:var(--gold-light);font-weight:600;letter-spacing:.04em;white-space:nowrap}
 .price-card ul{text-align:left;margin:26px 0 30px;padding:0}
 .price-card ul li{list-style:none;font-size:.84rem;color:rgba(239,233,221,.85);padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed rgba(239,233,221,.14)}
 .price-card ul li::before{content:"✓";position:absolute;left:0;color:var(--gold-light)}
@@ -521,26 +531,38 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 <!-- ============ OFFER ============ -->
 <section class="offer pad" id="offer">
   <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow">Subscription</span>
-      <h2 class="title">定期コースで、<br>“育てる”を続ける。</h2>
-      <p class="body" style="color:rgba(239,233,221,.72);max-width:30em;margin:18px auto 0">土台ケアは、続けることで本領を発揮します。だからこそ、いちばんお得に続けられる定期コースをご用意しました。</p>
+    <div class="reveal" style="text-align:center">
+      <span class="tag" style="border-color:rgba(203,181,145,.5);color:var(--gold-light)">このページ限定</span>
+      <p class="sub-offer">おひとり様1回までの特別オファー</p>
+      <h2 class="title" style="color:#fff;margin:14px 0 6px">HBKまつ毛美容液<br>定期コース</h2>
+      <p class="body" style="color:var(--gold-light);max-width:30em;margin:6px auto 0">お得な定期コースで、“育てる”を続ける。</p>
     </div>
     <img class="offer-prod reveal" src="assets/img/hbk_serumplus_02_m.jpg" alt="HBK BY EYESOUND EYELASH SERUM+ 本体">
     <div class="price-card reveal d1">
-      <span class="plan">月1回お届け定期コース</span>
-      <div class="off">初回限定 43%OFF</div>
-      <p class="was">通常価格 ¥8,800(税込)</p>
-      <div class="now"><span class="yen">¥</span><span class="num">4,980</span><span class="tax">税込／初回</span></div>
+      <span class="plan">初回限定特別価格（2ヶ月分）</span>
+      <div class="off">10% OFF</div>
+      <p class="was">通常価格 <s>16,500円(税込)</s> のところ</p>
+      <div class="now"><span class="num">14,850</span><span class="yen">円</span><span class="tax">税込</span></div>
+      <p class="cycle">2ヶ月ごとに1本お届け！</p>
       <ul>
-        <li>2回目以降もずっと <b>¥6,980</b>(税込)でお届け</li>
-        <li>送料無料・全国どこでも</li>
-        <li>お届け周期の変更・休止はいつでも可能</li>
-        <li>30日間 安心サポート</li>
+        <li>2回目以降は<b>15%OFFの14,000円</b>(税込)でお届け</li>
+        <li>2ヶ月（60日）ごとに1本のペースでお届け</li>
+        <li>初回商品の到着後より、いつでもお電話で解約可能</li>
       </ul>
-      <a href="#" class="btn btn-fill" style="width:100%">定期コースを申し込む <span class="ar">→</span></a>
+      <a href="#" class="btn btn-fill" style="width:100%">今すぐお得にはじめてみる <span class="ar">→</span></a>
+      <p class="cta-price">初回限定 <b>14,850円</b>(税込)</p>
     </div>
-    <p class="micro">※ 上記の価格・特典は構成見本です。実際の販売条件・定期回数条件に合わせて確定してください。<br>※ 定期コースの解約条件等は特定商取引法に基づく表記をご確認ください。</p>
+    <div class="single-opt reveal">
+      <span>単品（2ヶ月分・通常価格）</span><b>16,500円<small style="font-weight:400;font-size:.8em"> (税込)</small></b>
+    </div>
+    <div class="terms reveal">
+      <p>○ 初回は10%OFFの14,850円（税込・※別途送料）でお届けし、2回目以降は15%OFFの14,000円（税込・※別途送料）でお届けします。</p>
+      <p>○ 2回目は初回ご注文から60日（2ヶ月）ごとに1本お届けします。</p>
+      <p>○ 初回商品の到着後よりいつでもお電話にて解約が可能です。<span class="tel">080-4915-0506</span>（受付時間 14時～17時／土日祝除く）</p>
+      <p>○ お届け時間の変更、スキップはできません。</p>
+      <p>○ お客様からお申し出を頂くまでは契約は自動更新となります。配送予定月の1日が決済のタイミングとなりますので、配送予定月の前月の25日までにご連絡頂く必要があります。（例）次回配送予定が5月15日の場合、4月25日迄にご連絡。</p>
+      <p>○ 送料：800円（※沖縄・離島は2,000円となります）</p>
+    </div>
   </div>
 </section>
 
@@ -555,7 +577,7 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
       <details><summary><span class="q">Q</span>どのくらいで変化を感じられますか？</summary><div class="a">まつ毛には毛周期(生え変わりのサイクル)があるため、土台ケアは継続が大切です。まずは毛周期にあわせて2〜3ヶ月を目安に、毎日のケアを続けてみてください。感じ方には個人差があります。</div></details>
       <details><summary><span class="q">Q</span>フルボ酸とは何ですか？安全ですか？</summary><div class="a">フルボ酸は、土壌中の有機物が長い年月をかけて生成された天然由来の低分子有機酸です。本製品では品質を見極めた高品質原料を採用し、目元にも配慮した低刺激設計に仕上げています。</div></details>
       <details><summary><span class="q">Q</span>まつ毛エクステやまつ毛パーマ中でも使えますか？</summary><div class="a">基本的にはお使いいただけますが、施術内容により異なる場合があります。サロンや施術者の方針に従い、不安な場合は事前にご相談ください。</div></details>
-      <details><summary><span class="q">Q</span>1本でどのくらい使えますか？</summary><div class="a">1日2回(朝・夜)のご使用で、およそ1ヶ月分が目安です。定期コースは月1回のお届けで、ちょうど使い切るペースでお届けします。</div></details>
+      <details><summary><span class="q">Q</span>1本でどのくらい使えますか？</summary><div class="a">1日2回(朝・夜)のご使用で、1本およそ2ヶ月分が目安です。定期コースは2ヶ月ごとに1本のお届けで、ちょうど使い切るペースでお届けします。</div></details>
       <details><summary><span class="q">Q</span>敏感肌でも使えますか？</summary><div class="a">目元のことを考えた処方ですが、肌に合わない場合はご使用を中止してください。心配な方は、目立たない部分でパッチテストを行ってからのご使用をおすすめします。</div></details>
     </div>
   </div>
