@@ -70,9 +70,9 @@ header.site:not(.solid) .nav-cta{color:#fff;border-color:rgba(255,255,255,.6)}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,14,.5) 0%,rgba(20,18,14,.14) 24%,rgba(20,18,14,.14) 46%,rgba(20,18,14,.74) 100%)}
 .hero .inner{position:relative;z-index:2;color:#fff;padding:0 28px 64px;width:100%;max-width:var(--maxw);margin:0 auto}
 .hero .eyebrow{color:#e9dcc4}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.72rem,6.7vw,3.3rem);line-height:1.5;letter-spacing:.04em;margin:18px 0 22px;text-shadow:0 2px 30px rgba(0,0,0,.34)}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.72rem,6.7vw,3.3rem);line-height:1.58;letter-spacing:.04em;margin:16px 0 20px;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.35)}
 .hero h1 em{font-style:normal;color:#f0e2c6}
-.hero p.sub{font-size:.95rem;line-height:2.05;max-width:30em;color:rgba(255,255,255,.92);text-shadow:0 1px 16px rgba(0,0,0,.4)}
+.hero p.sub{font-size:.95rem;line-height:2.15;max-width:30em;color:rgba(255,255,255,.94);text-shadow:0 1px 3px rgba(0,0,0,.6),0 1px 10px rgba(0,0,0,.4)}
 .hero .pname{font-family:var(--latin);font-style:italic;font-size:1.2rem;letter-spacing:.04em;color:#f0e2c6;margin-top:30px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
 .scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;font-family:var(--label);font-size:.6rem;letter-spacing:.3em;color:#fff;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.85}
@@ -235,7 +235,7 @@ section{position:relative}
 .result-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,14,.42),rgba(20,18,14,0) 58%),linear-gradient(0deg,rgba(20,18,14,.5),rgba(20,18,14,0) 42%)}
 .result-band .cap{position:absolute;left:0;bottom:0;z-index:2;color:#fff;width:100%;max-width:var(--maxw);left:50%;transform:translateX(-50%);padding:clamp(28px,5vw,64px)}
 .result-band .cap .eyebrow{color:#e9dcc4}
-.result-band .cap h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.55rem,5.4vw,2.5rem);line-height:1.5;margin-top:14px;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.result-band .cap h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.55rem,5.4vw,2.5rem);line-height:1.56;margin-top:14px;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.35)}
 .result-band .cap .note{margin-top:14px;font-size:.68rem;letter-spacing:.04em;color:rgba(255,255,255,.7)}
 
 /* ---------- ritual band (full-bleed) ---------- */
@@ -244,8 +244,58 @@ section{position:relative}
 .ritual::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.22) 46%,rgba(20,18,14,0) 76%)}
 .ritual .inner{position:relative;z-index:2;color:#fff;max-width:var(--maxw);margin:0 auto;width:100%;padding:0 28px}
 .ritual .eyebrow{color:#e9dcc4}
-.ritual h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,5.6vw,2.7rem);line-height:1.55;margin:18px 0 18px;text-shadow:0 2px 24px rgba(0,0,0,.45)}
-.ritual p{max-width:24em;font-size:.92rem;line-height:2.05;color:rgba(255,255,255,.9);text-shadow:0 1px 14px rgba(0,0,0,.4)}
+.ritual h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,5.6vw,2.7rem);line-height:1.62;margin:18px 0 18px;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.35)}
+.ritual p{max-width:24em;font-size:.92rem;line-height:2.1;color:rgba(255,255,255,.92);text-shadow:0 1px 3px rgba(0,0,0,.6),0 1px 10px rgba(0,0,0,.4)}
+
+/* ---------- diff (renewal) ---------- */
+.diff{background:var(--paper)}
+.diff-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:22px;margin-top:8px}
+.diff-card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:clamp(26px,4vw,40px);text-align:center;display:flex;flex-direction:column}
+.diff-card.next{border-color:rgba(169,138,92,.5);box-shadow:0 30px 60px -34px rgba(169,138,92,.5)}
+.diff-card .dlabel{font-family:var(--label);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+.diff-card .dlabel.gold{color:var(--gold-deep)}
+.diff-card h4{font-family:var(--serif);font-weight:600;font-size:1.18rem;margin:14px 0 18px;letter-spacing:.03em}
+.diff-card h4 em{font-style:normal;color:var(--gold-deep);font-size:1.35em}
+.diff-card ul{list-style:none;display:flex;flex-direction:column;gap:0;margin:0 0 18px}
+.diff-card ul li{font-size:.92rem;color:var(--ink-soft);padding:10px 0;border-bottom:1px dashed var(--line)}
+.diff-card ul li.add{color:var(--gold-deep);font-weight:700;font-family:var(--serif);font-size:1.05rem;border-bottom:none}
+.diff-card p{font-size:.82rem;line-height:1.95;color:var(--ink-soft);margin-top:auto}
+.diff-arrow{display:flex;align-items:center;justify-content:center;font-family:var(--label);font-size:1.7rem;color:var(--gold)}
+
+/* ---------- key ingredients (featured) ---------- */
+.ingredients .sechead h2.title{color:#fff}
+.ing-feature{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:center;margin-top:60px}
+.ing-feature.rev .ing-feat-img{order:2}
+.ing-feat-img{border-radius:8px;overflow:hidden;box-shadow:0 40px 80px -36px rgba(0,0,0,.7)}
+.ing-feat-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:280px}
+.ing-no{font-family:var(--latin);font-style:italic;font-size:2.2rem;color:var(--gold);line-height:1}
+.ing-feat-txt .molecule{display:block;margin:10px 0 4px}
+.ing-feat-txt h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.4rem,4.4vw,2rem);line-height:1.5;color:#fff;letter-spacing:.03em;margin-bottom:18px}
+.ing-feat-txt>p{font-size:.9rem;line-height:2.05;color:rgba(239,233,221,.74)}
+.feat-points{list-style:none;margin-top:22px}
+.feat-points li{font-size:.84rem;line-height:1.8;color:rgba(239,233,221,.82);padding:13px 0 13px 26px;border-top:1px solid rgba(239,233,221,.14);position:relative}
+.feat-points li::before{content:"✓";position:absolute;left:0;color:var(--gold-light)}
+.ing-support{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:54px;padding-top:46px;border-top:1px solid rgba(239,233,221,.16)}
+.ing-support h5{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:#fff;margin-bottom:8px}
+.ing-support p{font-size:.82rem;line-height:1.9;color:rgba(239,233,221,.66)}
+
+/* ---------- before / after ---------- */
+.beforeafter{background:var(--paper-2)}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);margin-top:48px}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:10px}
+.ba-img{position:relative;border-radius:6px;overflow:hidden}
+.ba-img img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:1/1}
+.ba-tag{position:absolute;top:10px;left:10px;font-family:var(--label);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border-radius:999px;color:#fff}
+.ba-tag.before{background:rgba(28,26,21,.66)}
+.ba-tag.after{background:var(--gold)}
+
+/* ---------- hero price + jas badge ---------- */
+.jas-badge{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:.06em;color:#fff;background:rgba(169,138,92,.95);padding:7px 16px;border-radius:999px;margin-bottom:14px;box-shadow:0 6px 20px -6px rgba(0,0,0,.45)}
+.hero-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin-top:24px;color:#fff}
+.hero-price .hp-tag{font-size:.72rem;letter-spacing:.06em;background:var(--gold);color:#fff;font-weight:700;padding:6px 14px;border-radius:999px;align-self:center}
+.hero-price .hp-main{font-family:var(--serif);font-size:1.05rem;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.hero-price .hp-main b{font-family:var(--latin);font-weight:600;font-size:2.2rem;letter-spacing:.01em}
+.hero-price .hp-sub{font-size:.74rem;color:rgba(255,255,255,.85);text-shadow:0 1px 10px rgba(0,0,0,.5)}
 
 /* ---------- faq ---------- */
 .faq{background:var(--paper)}
@@ -287,6 +337,12 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   .pgallery{grid-template-columns:1fr}
   .pg-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .pg-main img{min-height:340px}
+  .diff-grid{grid-template-columns:1fr;gap:14px}
+  .diff-arrow{transform:rotate(90deg)}
+  .ing-feature{grid-template-columns:1fr;gap:26px}
+  .ing-feature.rev .ing-feat-img{order:0}
+  .ing-support{grid-template-columns:1fr;gap:14px}
+  .ba-grid{grid-template-columns:1fr}
   .ritual{align-items:flex-end;min-height:78vh}
   .ritual .inner{padding-bottom:48px}
   .ritual::after{background:linear-gradient(0deg,rgba(20,18,14,.72) 0%,rgba(20,18,14,.15) 58%,rgba(20,18,14,.1) 100%)}
@@ -322,13 +378,18 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 <section class="hero" id="top">
   <img class="bg" src="assets/img/hero.jpg" alt="HBK BY EYE SOUND フルボ酸まつげ美容液を手にするモデル">
   <div class="inner">
+    <span class="jas-badge">有機JAS認定の高品質フルボ酸使用</span>
     <span class="eyebrow">Eyelash Serum +</span>
     <h1>与えるだけの美容から、<br><em>“育てる”</em>へ。</h1>
-    <p class="sub">まつ毛は、変えるのではなく“整える”もの。<br>希少な高品質フルボ酸が、まつ毛の土台から環境を整える。<br>仕組みで納得して選ぶ、新しいまつげ美容液。</p>
-    <p class="pname">HBK BY EYE SOUND — Fulvic Eyelash Serum +</p>
+    <p class="sub">まつ毛は、変えるのではなく“整える”もの。<br>有機JAS認定の高品質フルボ酸が、まつ毛の土台から環境を整える。<br>仕組みで納得して選ぶ、新しいまつげ美容液。</p>
+    <div class="hero-price">
+      <span class="hp-tag">初回限定 10%OFF</span>
+      <span class="hp-main"><b>14,850</b>円<small> (税込)</small></span>
+      <span class="hp-sub">通常16,500円 ／ 2ヶ月分・送料別</span>
+    </div>
     <div class="hero-cta">
       <a href="#offer" class="btn btn-fill">今すぐ購入する <span class="ar">→</span></a>
-      <a href="#science" class="btn btn-line">成分・処方を詳しく見る</a>
+      <a href="#formula" class="btn btn-line">成分・処方を詳しく見る</a>
     </div>
   </div>
   <div class="scrolldown">SCROLL<span></span></div>
@@ -345,70 +406,83 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   </div>
 </section>
 
-<!-- ============ TARGET ============ -->
-<section class="target">
-  <div class="grid">
-    <div class="txt reveal">
-      <span class="eyebrow">For You</span>
-      <h2 class="title">30代の、<br>本質志向な方へ。</h2>
-      <p class="body">感覚でなく、仕組みで納得して選ぶ。成分の羅列ではなく、設計の哲学で選ばれる。<br><br>「なんとなく良さそう」で選んできたまつげ美容液から、卒業しませんか。なぜ効くのか、どこに働くのか——理由まで理解して選びたい大人のための一本です。</p>
-    </div>
-    <div class="ph reveal d1"><img src="assets/img/IMG_6804.JPG" alt="本質志向な大人の女性"></div>
-  </div>
-</section>
-
-<!-- ============ SCIENCE ============ -->
-<section class="science pad" id="science">
+<!-- ============ DIFF (RENEWAL) ============ -->
+<section class="diff pad" id="diff">
   <div class="wrap">
     <div class="sechead center reveal">
-      <span class="eyebrow">Key Ingredient · Science</span>
-      <h2 class="title">キー成分の科学<br>フルボ酸、4つの働き。</h2>
+      <span class="eyebrow">Renewal</span>
+      <h2 class="title">従来のまつ毛美容液との違い。</h2>
+      <p class="body narrow" style="margin-top:22px">「伸ばす」「増やす」だけでは、終わらせない。<br>HBKまつ毛美容液＋は、“コシ・ハリ”まで育てる処方へ進化しました。</p>
     </div>
-    <div class="fulvic-def">
-      <div class="img reveal"><img src="assets/img/se_00243335_d_cm.jpg" alt="フルボ酸配合まつげ美容液"></div>
-      <div class="reveal d1">
-        <p class="molecule">Fulvic Acid — under 1,000 Da</p>
-        <p class="lead" style="margin-bottom:20px">土壌中の有機物が、長い年月をかけて分解・生成された天然由来の低分子有機酸。</p>
-        <p class="body">その分子量の小ささと、複数の生理活性作用が、まつ毛ケアの常識を変える。極めて小さな分子だからこそ届く深部へ、必要な栄養を“運び”、不要なものを“出す”。フルボ酸は、まつ毛が育つ環境を整えるための鍵となる成分です。</p>
+    <div class="diff-grid">
+      <div class="diff-card prev reveal">
+        <span class="dlabel">これまで</span>
+        <h4>HBK まつ毛美容液</h4>
+        <ul>
+          <li>伸ばす</li>
+          <li>増やす</li>
+        </ul>
+        <p>長さとボリューム——「伸ばす」「増やす」に特化した、従来の処方。</p>
       </div>
-    </div>
-
-    <div class="works">
-      <div class="works-grid">
-        <div class="work reveal"><div class="no">01</div><h4>超低分子浸透</h4><p>分子量およそ1,000Da以下と極めて小さく、角質層のバリアを越えて毛包周辺まで到達。一般的な成分では届きにくい深部へのアクセスを叶えます。</p></div>
-        <div class="work reveal d1"><div class="no">02</div><h4>キレート作用</h4><p>ミネラルイオンと結合し、必要な栄養素を必要な場所へ確実に届ける“運び屋”として機能。効率的なミネラル輸送をサポートします。</p></div>
-        <div class="work reveal"><div class="no">03</div><h4>老廃物排出サポート</h4><p>蓄積した老廃物や酸化ストレスの排出を後押し。詰まりを解消し、毛根まわりの環境をクリーンな状態へとリセットします。</p></div>
-        <div class="work reveal d1"><div class="no">04</div><h4>浸透効率の最大化</h4><p>フルボ酸単独で働くだけでなく、他の有効成分のなじみを高めるベースとして機能。配合成分すべての力を引き出す、処方の要です。</p></div>
-      </div>
-      <div class="flow reveal">
-        <p class="kicker">Penetrate · Carry · Detox</p>
-        <div class="chain">
-          <span class="node">浸透</span><span class="arr">→</span>
-          <span class="node">運搬</span><span class="arr">→</span>
-          <span class="node">毛包到達</span><span class="arr">→</span>
-          <span class="node">環境リセット</span><span class="arr">→</span>
-          <span class="node">健やかへ</span>
-        </div>
-        <p class="cap">浸透・運搬・デトックス。この3つが連鎖することで、まつ毛が育つための最適な環境が整います。</p>
+      <div class="diff-arrow reveal" aria-hidden="true">→</div>
+      <div class="diff-card next reveal d1">
+        <span class="dlabel gold">リニューアル</span>
+        <h4>HBK まつ毛美容液 <em>＋</em></h4>
+        <ul>
+          <li>伸ばす</li>
+          <li>増やす</li>
+          <li class="add">＋ コシ・ハリ</li>
+        </ul>
+        <p>従来の「伸ばす」「増やす」に加え、「コシ・ハリ」にもアプローチ。まつ毛一本一本を強く、美しく育てる処方へと進化しました。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ QUALITY ============ -->
-<section class="quality pad">
+<!-- ============ KEY INGREDIENTS (FORMULATION) ============ -->
+<section class="ingredients pad" id="formula">
   <div class="wrap">
     <div class="sechead center reveal">
-      <span class="eyebrow">Rarity & Quality</span>
-      <h2 class="title">同じ“フルボ酸”でも、<br>品質は等しくない。</h2>
-      <p class="body narrow" style="margin-top:22px">原料の質によって、フルボ酸の働きは大きく変わります。HBK は、信頼できる基準で品質を見極めた、希少な高品質フルボ酸のみを採用しています。</p>
+      <span class="eyebrow">Key Ingredients</span>
+      <h2 class="title">2つの主役成分が、<br>まつ毛の“育つ力”を支える。</h2>
+      <p class="body narrow" style="margin-top:22px;color:rgba(239,233,221,.72)">「土台を整える」フルボ酸と、「育てる」幹細胞エキス。役割の異なる2成分が連鎖して、まつ毛本来の強さと美しさを引き出します。</p>
     </div>
-    <div class="q-grid">
-      <div class="q-card reveal"><div class="ic">I</div><h4>IHSS 基準</h4><p>フミン物質の国際的な研究機関 IHSS(International Humic Substances Society)の基準を参照し、純度と品質を見極めた原料を厳選しています。</p></div>
-      <div class="q-card reveal d1"><div class="ic">II</div><h4>国産・厳格製造</h4><p>管理の行き届いた国内環境で製造。品質基準に基づいた工程管理のもと、安心して使い続けられる一本に仕上げています。</p></div>
-      <div class="q-card reveal d2"><div class="ic">III</div><h4>高品質原料</h4><p>生理活性を保った良質なフルボ酸原料を採用。希少だからこそ、その一滴にまで品質へのこだわりを込めています。</p></div>
+
+    <div class="ing-feature reveal">
+      <div class="ing-feat-img"><img src="assets/img/se_00243335_d_cm.jpg" alt="有機JAS認定の高品質フルボ酸配合まつげ美容液"></div>
+      <div class="ing-feat-txt">
+        <span class="ing-no">01</span>
+        <span class="molecule">Fulvic Acid — under 1,000 Da</span>
+        <h3>有機JAS認定の<br>高品質フルボ酸</h3>
+        <p>土壌中の有機物が長い年月をかけて生成された、天然由来の低分子有機酸。極めて小さな分子だからこそ角質層を越えて毛包周辺まで届き、必要な栄養を“運び”、不要なものを“出す”。まつ毛が育つための「土台環境」そのものを整える、処方の要です。HBKは有機JAS認定の高品質フルボ酸を採用しています。</p>
+        <ul class="feat-points">
+          <li>超低分子だから届く、毛包深部へのアプローチ</li>
+          <li>ミネラルを抱えて運ぶキレート作用で、栄養を的確に届ける</li>
+          <li>毛根まわりの老廃物をクリアにするデトックスサポート</li>
+          <li>他の有効成分のなじみを高める、浸透ベースとして機能</li>
+        </ul>
+      </div>
     </div>
-    <p class="q-note">※ 品質基準・原料に関する表記は、原料の選定方針を示すものです。</p>
+
+    <div class="ing-feature rev reveal">
+      <div class="ing-feat-img"><img src="assets/img/se_00243356_d_cm.jpg" alt="ヒト毛根幹細胞順化培養エキス配合"></div>
+      <div class="ing-feat-txt">
+        <span class="ing-no">02</span>
+        <span class="molecule">Hair Follicle Stem Cell Conditioned Media</span>
+        <h3>ヒト毛根幹細胞<br>順化培養エキス</h3>
+        <p>毛根由来の幹細胞を培養する過程で生まれる、保湿・コンディショニング成分を豊富に含むうるおいエキス。フルボ酸が整えた“土台”に直接働きかけ、まつ毛本来のハリ・コシをサポートします。「整える」から「育てる」へ——今回のリニューアル＋の主役となる成分です。</p>
+        <ul class="feat-points">
+          <li>整えられた土台環境に、ハリ・コシ感をチャージ</li>
+          <li>まつ毛一本一本の“強さ”と“美しさ”を後押し</li>
+          <li>複合ペプチドと組み合わせ、うるおいを長くキープ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ing-support reveal">
+      <div><h5>複合ペプチド</h5><p>うるおいとハリ感を与え、まつ毛と目元の地肌をやさしく保ちます。</p></div>
+      <div><h5>低刺激設計</h5><p>毎日使うものだから、デリケートな目もとにも配慮した処方に仕上げています。</p></div>
+    </div>
   </div>
 </section>
 
@@ -478,22 +552,25 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   </div>
 </section>
 
-<!-- ============ INGREDIENTS ============ -->
-<section class="ingredients pad ing">
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="beforeafter pad" id="beforeafter">
   <div class="wrap">
-    <div class="ing-grid">
-      <div class="reveal">
-        <span class="eyebrow">Formulation</span>
-        <h2 class="title" style="margin:18px 0 10px">土台を整え、<br>育む処方設計。</h2>
-        <ul class="ing-list">
-          <li><h5>高品質フルボ酸</h5><p>処方全体の要。浸透・運搬・デトックスを担い、まつ毛が育つ環境を整えます。</p></li>
-          <li><h5>ヒト毛根幹細胞順化培養液エキス</h5><p>整えられた土台に働きかけ、すこやかなまつ毛環境をサポートします。</p></li>
-          <li><h5>複合ペプチド</h5><p>うるおいとハリ感を与え、まつ毛と目元の地肌をやさしく保ちます。</p></li>
-          <li><h5>低刺激設計</h5><p>毎日使うものだから、目元のことを考えた処方に。デリケートな目もとにも配慮しています。</p></li>
-        </ul>
-      </div>
-      <div class="img reveal d1"><img src="assets/img/se_00243356_d_cm.jpg" alt="HBK まつげ美容液 処方"></div>
+    <div class="sechead center reveal">
+      <span class="eyebrow">Before / After</span>
+      <h2 class="title">変化は、目もとに現れる。</h2>
+      <p class="body narrow" style="margin-top:22px">継続してご使用いただいた方の、まつ毛の変化です。</p>
     </div>
+    <div class="ba-grid">
+      <div class="ba-pair reveal">
+        <div class="ba-img"><span class="ba-tag before">Before</span><img src="assets/img/before-1.jpg" alt="使用前のまつ毛"></div>
+        <div class="ba-img"><span class="ba-tag after">After</span><img src="assets/img/after-1.jpg" alt="使用後のまつ毛"></div>
+      </div>
+      <div class="ba-pair reveal d1">
+        <div class="ba-img"><span class="ba-tag before">Before</span><img src="assets/img/before-2.jpg" alt="使用前のまつ毛"></div>
+        <div class="ba-img"><span class="ba-tag after">After</span><img src="assets/img/after-2.jpg" alt="使用後のまつ毛"></div>
+      </div>
+    </div>
+    <p class="disclaimer narrow" style="max-width:760px">※ 写真は個人の使用イメージであり、感じ方・変化には個人差があります。化粧品としての使用感・印象の変化に関する表現です。</p>
   </div>
 </section>
 
@@ -547,7 +624,6 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
       <ul>
         <li>2回目以降は<b>15%OFFの14,000円</b>(税込)でお届け</li>
         <li>2ヶ月（60日）ごとに1本のペースでお届け</li>
-        <li>初回商品の到着後より、いつでもお電話で解約可能</li>
       </ul>
       <a href="#" class="btn btn-fill" style="width:100%">今すぐお得にはじめてみる <span class="ar">→</span></a>
       <p class="cta-price">初回限定 <b>14,850円</b>(税込)</p>
@@ -597,7 +673,7 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   <div class="wrap center">
     <img class="flogo" src="assets/img/logo-white.png" alt="HBK BY EYE SOUND">
     <div class="fnav">
-      <a href="#science">成分・科学</a>
+      <a href="#formula">成分・処方</a>
       <a href="#offer">定期コース</a>
       <a href="#">特定商取引法</a>
       <a href="#">プライバシーポリシー</a>
@@ -610,7 +686,7 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 
 <!-- ============ MOBILE STICKY CTA ============ -->
 <div class="mcta" id="mcta">
-  <a href="#science" class="btn btn-ghost">成分を見る</a>
+  <a href="#formula" class="btn btn-ghost">成分を見る</a>
   <a href="#offer" class="btn btn-fill">今すぐ購入 <span class="ar">→</span></a>
 </div>
 
