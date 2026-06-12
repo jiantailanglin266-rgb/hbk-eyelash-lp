@@ -102,6 +102,7 @@ section{position:relative}
 
 /* ---------- concept ---------- */
 .concept{background:var(--paper);text-align:center;padding:clamp(34px,5.5vw,76px) 0}
+.concept picture{display:block}
 .concept img{width:100%;max-width:1000px;margin:0 auto;display:block;border-radius:12px;box-shadow:0 28px 60px -36px rgba(28,26,21,.42)}
 .concept .big{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,5.6vw,2.5rem);line-height:1.95;letter-spacing:.06em;margin:30px 0}
 .concept .big b{font-weight:700;color:var(--gold-deep);background:linear-gradient(transparent 62%,rgba(169,138,92,.16) 62%)}
@@ -416,7 +417,10 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 <!-- ============ CONCEPT ============ -->
 <section class="concept" id="concept">
   <div class="wrap reveal">
-    <img src="assets/img/concept.jpg" alt="まつ毛は、変えるのではなく“整える”もの。一時的な見た目の変化ではなく、まつ毛が育つための「環境」そのものに着目する。フルボ酸という天然由来成分の力で、土台からアプローチする。それが、HBKのまつげ美容液が掲げる哲学です。「フルボ酸で、まつ毛の土台から変える。仕組みで納得して選ぶ、“育てる”まつげ美容液。」">
+    <picture>
+      <source media="(max-width:560px)" srcset="assets/img/concept-mobile.jpg">
+      <img src="assets/img/concept.jpg" alt="まつ毛は、変えるのではなく“整える”もの。一時的な見た目の変化ではなく、まつ毛が育つための「環境」そのものに着目する。フルボ酸という天然由来成分の力で、土台からアプローチする。それが、HBKのまつげ美容液が掲げる哲学です。「フルボ酸で、まつ毛の土台から変える。仕組みで納得して選ぶ、“育てる”まつげ美容液。」">
+    </picture>
   </div>
 </section>
 
