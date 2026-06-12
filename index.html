@@ -282,6 +282,7 @@ section{position:relative}
 /* ---------- before / after ---------- */
 .beforeafter{background:var(--paper-2)}
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);margin-top:48px}
+.ba-grid.one{grid-template-columns:1fr;max-width:620px;margin-left:auto;margin-right:auto}
 .ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:10px}
 .ba-img{position:relative;border-radius:6px;overflow:hidden}
 .ba-img img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:1/1}
@@ -495,13 +496,6 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
       <p class="body narrow" style="margin-top:22px">まつ毛の生え際にもフィットする筆先で、必要な場所へ的確に。朝晩のケアに、すっと取り入れられる設計です。</p>
     </div>
     <div class="pg-hero reveal"><img src="assets/img/hbk_serumplus_06_m.jpg" alt="HBK BY EYESOUND EYELASH SERUM+ 本体とパッケージ"></div>
-    <div class="pgallery reveal d1">
-      <div class="pg-main"><img src="assets/img/hbk_serumplus_04_m.jpg" alt="まつげ美容液 本体"></div>
-      <div class="pg-side">
-        <img src="assets/img/hbk_serumplus_01_m.jpg" alt="まつげ美容液 ディテール">
-        <img src="assets/img/hbk_serumplus_08_m.jpg" alt="まつげ美容液 アプリケーター先端">
-      </div>
-    </div>
     <div class="specs reveal">
       <span>Eyelash Serum +</span><span>筆ペンタイプ</span><span>朝晩のケアに</span>
     </div>
@@ -530,27 +524,8 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   <div class="cap">
     <span class="eyebrow">Eye Impression</span>
     <h3>目もとで、<br>印象が変わる。</h3>
-    <p class="note">※ 写真はイメージです。</p>
   </div>
 </div>
-
-<!-- ============ CHANGES ============ -->
-<section class="changes pad">
-  <div class="wrap">
-    <div class="sechead center reveal">
-      <span class="eyebrow">Expected Change</span>
-      <h2 class="title">環境が整うほどに、<br>まつ毛の印象が変わる。</h2>
-      <p class="body narrow" style="margin-top:22px">土台から整えられた、本質的な印象の変化。継続使用で期待できる、まつ毛の状態の変化です。</p>
-    </div>
-    <div class="c-grid narrow" style="max-width:760px">
-      <div class="change reveal"><span class="n">01</span><h4>ハリ・コシのある印象へ</h4><p>1本1本が芯のある印象に。うつむいても乱れにくい、しなやかな目元の印象へ導きます。</p></div>
-      <div class="change reveal d1"><span class="n">02</span><h4>すこやかにキープ</h4><p>毛根まわりの環境を健やかに保つことで、いまあるまつ毛をしっかりと守る土台をつくります。</p></div>
-      <div class="change reveal"><span class="n">03</span><h4>健やかさの維持</h4><p>クリーンな毛根環境が続くことで、まつ毛が本来もつ健やかさを長くキープします。</p></div>
-      <div class="change reveal d1"><span class="n">04</span><h4>密度感のある目元印象</h4><p>1本の質が高まることで全体の存在感が変化。マスカラに頼らずとも、自然な立体感のある目元印象へ。</p></div>
-    </div>
-    <p class="disclaimer narrow" style="max-width:760px">※ これらは化粧品としての使用感・印象の変化に関する表現であり、医薬品的な効果・効能(発毛・育毛等)を標榜するものではありません。感じ方には個人差があります。</p>
-  </div>
-</section>
 
 <!-- ============ BEFORE / AFTER ============ -->
 <section class="beforeafter pad" id="beforeafter">
@@ -560,13 +535,9 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
       <h2 class="title">変化は、目もとに現れる。</h2>
       <p class="body narrow" style="margin-top:22px">継続してご使用いただいた方の、まつ毛の変化です。</p>
     </div>
-    <div class="ba-grid">
+    <div class="ba-grid one">
       <div class="ba-pair reveal">
         <div class="ba-img"><span class="ba-tag before">Before</span><img src="assets/img/before-1.jpg" alt="使用前のまつ毛"></div>
-        <div class="ba-img"><span class="ba-tag after">After</span><img src="assets/img/after-1.jpg" alt="使用後のまつ毛"></div>
-      </div>
-      <div class="ba-pair reveal d1">
-        <div class="ba-img"><span class="ba-tag before">Before</span><img src="assets/img/before-2.jpg" alt="使用前のまつ毛"></div>
         <div class="ba-img"><span class="ba-tag after">After</span><img src="assets/img/after-2.jpg" alt="使用後のまつ毛"></div>
       </div>
     </div>
@@ -609,7 +580,6 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 <section class="offer pad" id="offer">
   <div class="wrap">
     <div class="reveal" style="text-align:center">
-      <span class="tag" style="border-color:rgba(203,181,145,.5);color:var(--gold-light)">このページ限定</span>
       <p class="sub-offer">おひとり様1回までの特別オファー</p>
       <h2 class="title" style="color:#fff;margin:14px 0 6px">HBKまつ毛美容液<br>定期コース</h2>
       <p class="body" style="color:var(--gold-light);max-width:30em;margin:6px auto 0">お得な定期コースで、“育てる”を続ける。</p>
@@ -635,7 +605,6 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
       <p>○ 初回は10%OFFの14,850円（税込・※別途送料）でお届けし、2回目以降は15%OFFの14,000円（税込・※別途送料）でお届けします。</p>
       <p>○ 2回目は初回ご注文から60日（2ヶ月）ごとに1本お届けします。</p>
       <p>○ 初回商品の到着後よりいつでもお電話にて解約が可能です。<span class="tel">080-4915-0506</span>（受付時間 14時～17時／土日祝除く）</p>
-      <p>○ お届け時間の変更、スキップはできません。</p>
       <p>○ お客様からお申し出を頂くまでは契約は自動更新となります。配送予定月の1日が決済のタイミングとなりますので、配送予定月の前月の25日までにご連絡頂く必要があります。（例）次回配送予定が5月15日の場合、4月25日迄にご連絡。</p>
       <p>○ 送料：800円（※沖縄・離島は2,000円となります）</p>
     </div>
