@@ -53,8 +53,8 @@ h2.title{font-family:var(--serif);font-weight:600;font-size:clamp(1.55rem,5.4vw,
 .reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
 
 /* ---------- header ---------- */
-header.site{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;transition:background .5s,padding .5s,box-shadow .5s}
-header.site.solid{background:rgba(246,243,236,.9);backdrop-filter:blur(14px);padding:13px 28px;box-shadow:0 1px 0 var(--line)}
+header.site{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:background .5s,padding .5s,box-shadow .5s,opacity .45s,transform .45s}
+header.site.solid{background:rgba(246,243,236,.92);backdrop-filter:blur(14px);padding:13px 28px;box-shadow:0 1px 0 var(--line);opacity:1;pointer-events:auto;transform:none}
 .brand{position:relative;display:inline-block;width:92px;line-height:0}
 .brand img{display:block;width:100%;height:auto}
 .brand .logo-b{position:absolute;inset:0;opacity:0;transition:opacity .5s}
@@ -64,20 +64,21 @@ header.site.solid .brand .logo-b{opacity:1}
 header.site:not(.solid) .nav-cta{color:#fff;border-color:rgba(255,255,255,.6)}
 .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:#fff}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:#e9e5dd}
-.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 22%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,14,.5) 0%,rgba(20,18,14,.14) 24%,rgba(20,18,14,.14) 46%,rgba(20,18,14,.74) 100%)}
-.hero .inner{position:relative;z-index:2;color:#fff;padding:0 28px 64px;width:100%;max-width:var(--maxw);margin:0 auto}
-.hero .eyebrow{color:#e9dcc4}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.72rem,6.7vw,3.3rem);line-height:1.58;letter-spacing:.04em;margin:16px 0 20px;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.35)}
-.hero h1 em{font-style:normal;color:#f0e2c6}
-.hero p.sub{font-size:.95rem;line-height:2.15;max-width:30em;color:rgba(255,255,255,.94);text-shadow:0 1px 3px rgba(0,0,0,.6),0 1px 10px rgba(0,0,0,.4)}
-.hero .pname{font-family:var(--latin);font-style:italic;font-size:1.2rem;letter-spacing:.04em;color:#f0e2c6;margin-top:30px}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;font-family:var(--label);font-size:.6rem;letter-spacing:.3em;color:#fff;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.85}
-.scrolldown span{width:1px;height:46px;background:rgba(255,255,255,.7);animation:sd 2.2s ease-in-out infinite}
-@keyframes sd{0%,100%{transform:scaleY(.3);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
+/* ---------- hero (POP poster) ---------- */
+.hero{position:relative;background:#0a0b0e;overflow:hidden;display:flex;justify-content:center;align-items:stretch}
+.hero .hero-bgblur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(38px) brightness(.42);transform:scale(1.18);z-index:0}
+.hero .hero-poster{position:relative;z-index:1;display:block;width:100%;height:auto;margin:0 auto}
+@media(min-width:561px){
+  .hero{min-height:100svh;align-items:center;padding:26px 0}
+  .hero .hero-poster{width:auto;max-width:min(560px,46vw);max-height:92vh;border-radius:6px;box-shadow:0 50px 120px -38px rgba(0,0,0,.85)}
+}
+/* hero lead band (price + CTA under the poster) */
+.hero-lead{background:var(--paper);text-align:center;padding:clamp(26px,4vw,46px) 0 clamp(34px,5vw,58px)}
+.hero-lead .jas-badge{margin-bottom:16px}
+.hero-lead .hero-price{justify-content:center;color:var(--ink);margin:0 auto 22px;text-shadow:none}
+.hero-lead .hero-price .hp-main,.hero-lead .hero-price .hp-main b{color:var(--ink);text-shadow:none}
+.hero-lead .hero-price .hp-sub{color:var(--ink-soft);text-shadow:none}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
 
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.7em;font-family:var(--sans);font-weight:500;font-size:.88rem;letter-spacing:.12em;padding:17px 36px;border-radius:999px;transition:.45s cubic-bezier(.2,.7,.2,1);cursor:pointer;border:1px solid transparent;white-space:nowrap}
@@ -363,11 +364,9 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   .c-grid{grid-template-columns:1fr;gap:0}
   .change{margin-top:0}
   .nav-cta{display:none}
-  .scrolldown{display:none}
   .concept,.diff{padding:0}
   .concept img,.diff img{max-width:100%}
-  .hero{min-height:auto;padding-top:96px}
-  .hero .inner{padding-bottom:46px}
+  .hero{min-height:0;padding:0}
   .step{grid-template-columns:1fr;gap:8px;padding:36px 0}
   .step .no{font-size:3rem}
   .price-card{padding:38px 24px}
@@ -385,14 +384,14 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   <a href="#offer" class="nav-cta">定期コースを見る</a>
 </header>
 
-<!-- ============ HERO ============ -->
+<!-- ============ HERO (POP poster) ============ -->
 <section class="hero" id="top">
-  <img class="bg" src="assets/img/hero.jpg" alt="HBK BY EYE SOUND フルボ酸まつげ美容液を手にするモデル">
-  <div class="inner">
+  <img class="hero-bgblur" src="assets/img/hero-pop.jpg" alt="" aria-hidden="true">
+  <img class="hero-poster" src="assets/img/hero-pop.jpg" alt="HBK BY EYE SOUND まつ毛美容液 SERUM＋ パワーアップして新登場。ハリ・ボリューム全部盛り。">
+</section>
+<section class="hero-lead">
+  <div class="wrap">
     <span class="jas-badge">有機JAS認定の高品質フルボ酸使用</span>
-    <span class="eyebrow">Eyelash Serum +</span>
-    <h1>与えるだけの美容から、<br><em>“育てる”</em>へ。</h1>
-    <p class="sub">まつ毛は、変えるのではなく“整える”もの。<br>有機JAS認定の高品質フルボ酸が、まつ毛の土台から環境を整える。<br>仕組みで納得して選ぶ、新しいまつげ美容液。</p>
     <div class="hero-price">
       <span class="hp-tag">初回限定 10%OFF</span>
       <span class="hp-main"><b>14,850</b>円<small> (税込)</small></span>
@@ -400,10 +399,9 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
     </div>
     <div class="hero-cta">
       <a href="#offer" class="btn btn-fill">今すぐ購入する <span class="ar">→</span></a>
-      <a href="#formula" class="btn btn-line">成分・処方を詳しく見る</a>
+      <a href="#formula" class="btn btn-ghost">成分・処方を詳しく見る</a>
     </div>
   </div>
-  <div class="scrolldown">SCROLL<span></span></div>
 </section>
 
 <!-- ============ ENDORSEMENT (一条響) ============ -->
