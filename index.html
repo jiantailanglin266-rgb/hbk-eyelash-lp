@@ -72,13 +72,14 @@ header.site:not(.solid) .nav-cta{color:#fff;border-color:rgba(255,255,255,.6)}
   .hero{min-height:100svh;align-items:center;padding:26px 0}
   .hero .hero-poster{width:auto;max-width:min(560px,46vw);max-height:92vh;border-radius:6px;box-shadow:0 50px 120px -38px rgba(0,0,0,.85)}
 }
-/* hero lead band (price + CTA under the poster) */
-.hero-lead{background:var(--paper);text-align:center;padding:clamp(26px,4vw,46px) 0 clamp(34px,5vw,58px)}
-.hero-lead .jas-badge{margin-bottom:16px}
-.hero-lead .hero-price{justify-content:center;color:var(--ink);margin:0 auto 22px;text-shadow:none}
-.hero-lead .hero-price .hp-main,.hero-lead .hero-price .hp-main b{color:var(--ink);text-shadow:none}
-.hero-lead .hero-price .hp-sub{color:var(--ink-soft);text-shadow:none}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+/* hero lead band (price section image under the poster) */
+.hero-lead{background:var(--paper);padding:0}
+.hero-lead .wrap{max-width:none;padding:0;width:100%}
+.pl-wrap{position:relative;line-height:0}
+.pl-img{width:100%;display:block}
+.pl-hot{position:absolute;display:block;z-index:2;border-radius:999px}
+.pl-buy{left:39%;top:59%;width:21%;height:14%}
+.pl-ing{left:60%;top:59%;width:24%;height:14%}
 
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.7em;font-family:var(--sans);font-weight:500;font-size:.88rem;letter-spacing:.12em;padding:17px 36px;border-radius:999px;transition:.45s cubic-bezier(.2,.7,.2,1);cursor:pointer;border:1px solid transparent;white-space:nowrap}
@@ -389,18 +390,11 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   <img class="hero-bgblur" src="assets/img/hero-pop.jpg" alt="" aria-hidden="true">
   <img class="hero-poster" src="assets/img/hero-pop.jpg" alt="HBK BY EYE SOUND まつ毛美容液 SERUM＋ パワーアップして新登場。ハリ・ボリューム全部盛り。">
 </section>
-<section class="hero-lead">
-  <div class="wrap">
-    <span class="jas-badge">有機JAS認定の高品質フルボ酸使用</span>
-    <div class="hero-price">
-      <span class="hp-tag">初回限定 10%OFF</span>
-      <span class="hp-main"><b>14,850</b>円<small> (税込)</small></span>
-      <span class="hp-sub">通常16,500円 ／ 2ヶ月分・送料別</span>
-    </div>
-    <div class="hero-cta">
-      <a href="#offer" class="btn btn-fill">今すぐ購入する <span class="ar">→</span></a>
-      <a href="#formula" class="btn btn-ghost">成分・処方を詳しく見る</a>
-    </div>
+<section class="hero-lead" id="price">
+  <div class="wrap pl-wrap reveal">
+    <img class="pl-img" src="assets/img/price-fv.jpg" alt="有機JAS認定の高品質フルボ酸使用。初回限定10%OFF、14,850円（税込）。通常16,500円／2ヶ月分。今すぐ購入する。成分・処方を詳しく見る。">
+    <a class="pl-hot pl-buy" href="#offer" aria-label="今すぐ購入する"></a>
+    <a class="pl-hot pl-ing" href="#formula" aria-label="成分・処方を詳しく見る"></a>
   </div>
 </section>
 
