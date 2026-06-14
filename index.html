@@ -68,6 +68,13 @@ header.site:not(.solid) .nav-cta{color:#fff;border-color:rgba(255,255,255,.6)}
 .hero{position:relative;background:#0a0b0e;overflow:hidden;display:flex;justify-content:center;align-items:stretch}
 .hero .hero-bgblur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(38px) brightness(.42);transform:scale(1.18);z-index:0}
 .hero .hero-poster{position:relative;z-index:1;display:block;width:100%;height:auto;margin:0 auto}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(84px,13vh,180px);z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(246,243,236,0) 0%,rgba(246,243,236,.5) 56%,var(--paper) 100%)}
+.scrollcue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gold-deep);font-family:var(--label);font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;transition:opacity .5s}
+.scrollcue.hide{opacity:0;pointer-events:none}
+.sc-chev{display:flex;flex-direction:column;align-items:center;height:18px}
+.sc-chev i{width:9px;height:9px;border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);margin-top:-4px;animation:scchev 1.5s ease-in-out infinite}
+.sc-chev i:nth-child(2){animation-delay:.2s}
+@keyframes scchev{0%{opacity:.2;transform:rotate(45deg) translate(-2px,-2px)}50%{opacity:1}100%{opacity:.2;transform:rotate(45deg) translate(2px,2px)}}
 @media(min-width:561px){
   .hero{min-height:100svh;align-items:center;padding:26px 0}
   .hero .hero-poster{width:auto;max-width:min(560px,46vw);max-height:92vh;border-radius:6px;box-shadow:0 50px 120px -38px rgba(0,0,0,.85)}
@@ -393,6 +400,10 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 <section class="hero" id="top">
   <img class="hero-bgblur" src="assets/img/hero-pop.jpg" alt="" aria-hidden="true">
   <img class="hero-poster" src="assets/img/hero-pop.jpg" alt="HBK BY EYE SOUND まつ毛美容液 SERUM＋ パワーアップして新登場。ハリ・ボリューム全部盛り。">
+  <a href="#price" class="scrollcue" aria-label="下にスクロール">
+    <span class="sc-label">Scroll</span>
+    <span class="sc-chev" aria-hidden="true"><i></i><i></i></span>
+  </a>
 </section>
 <section class="hero-lead" id="price">
   <div class="pl-wrap reveal">
@@ -651,11 +662,12 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 
 <script>
 // header solid + mobile cta on scroll
-const hd=document.getElementById('hd'), mcta=document.getElementById('mcta'), hero=document.getElementById('top');
+const hd=document.getElementById('hd'), mcta=document.getElementById('mcta'), hero=document.getElementById('top'), scue=document.querySelector('.scrollcue');
 const onScroll=()=>{
   const y=window.scrollY;
   hd.classList.toggle('solid', y>60);
   mcta.classList.toggle('show', y>window.innerHeight*.85);
+  if(scue) scue.classList.toggle('hide', y>40);
 };
 window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
