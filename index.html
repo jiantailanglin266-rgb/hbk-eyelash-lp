@@ -296,6 +296,14 @@ section{position:relative}
 .ing-support h5{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:#fff;margin-bottom:8px}
 .ing-support p{font-size:.82rem;line-height:1.9;color:rgba(239,233,221,.66)}
 
+/* ---------- compat (エクステ・パーマ併用) ---------- */
+.compat{background:var(--paper);position:relative;padding:0}
+.compat-inner{position:relative;line-height:0;width:100%}
+.compat-inner img{width:100%;display:block}
+.compat::before,.compat::after{content:"";position:absolute;left:0;right:0;height:clamp(56px,9vw,128px);z-index:2;pointer-events:none}
+.compat::before{top:0;background:linear-gradient(180deg,var(--paper) 0%,rgba(246,243,236,0) 100%)}
+.compat::after{bottom:0;background:linear-gradient(0deg,var(--paper) 0%,rgba(246,243,236,0) 100%)}
+
 /* ---------- before / after ---------- */
 .beforeafter{background:var(--paper)}
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);margin-top:48px}
@@ -544,6 +552,13 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
       </div>
     </div>
     <p class="disclaimer narrow" style="max-width:760px">※ 写真は個人の使用イメージであり、感じ方・変化には個人差があります。化粧品としての使用感・印象の変化に関する表現です。</p>
+  </div>
+</section>
+
+<!-- ============ COMPAT (エクステ・パーマ併用) ============ -->
+<section class="compat" id="compat">
+  <div class="compat-inner reveal">
+    <img src="assets/img/compat.jpg" alt="まつ毛パーマやまつ毛エクステとの併用も可能！一条響がこれまで様々なまつ毛美容液を試し続けてきた経験から、まつ毛パーマ・まつ毛エクステとの相性は非常に重要な要素だと判断。まつ毛を育てるだけでなく、その後のメイクの仕上がりまで考えてつくられた商品です。">
   </div>
 </section>
 
