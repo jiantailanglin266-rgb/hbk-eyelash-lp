@@ -64,32 +64,34 @@ header.site.solid .brand .logo-b{opacity:1}
 header.site:not(.solid) .nav-cta{color:#fff;border-color:rgba(255,255,255,.6)}
 .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:#fff}
 
-/* ---------- hero (POP poster) ---------- */
-.hero{position:relative;background:#0a0b0e;overflow:hidden;display:flex;justify-content:center;align-items:stretch}
+/* ---------- hero (POP poster + price/cart) ---------- */
+.hero{position:relative;background:#0a0b0e;overflow:hidden;display:flex;justify-content:center;align-items:center}
 .hero .hero-bgblur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(38px) brightness(.42);transform:scale(1.18);z-index:0}
-.hero .hero-poster{position:relative;z-index:1;display:block;width:100%;height:auto;margin:0 auto}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(84px,13vh,180px);z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(246,243,236,0) 0%,rgba(246,243,236,.5) 56%,var(--paper) 100%)}
-.scrollcue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gold-deep);font-family:var(--label);font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;transition:opacity .5s}
+.hero-stack{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2.6vh,28px);width:100%;padding:52px 22px 92px}
+.hero-poster{display:block;width:100%;max-width:300px;max-height:50vh;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 40px 90px -34px rgba(0,0,0,.85)}
+.hero-buy{text-align:center;color:#fff;max-width:380px}
+.hb-tag{display:inline-block;font-size:.72rem;letter-spacing:.06em;font-weight:700;background:var(--gold);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:12px}
+.hb-price{display:flex;align-items:flex-end;justify-content:center;gap:3px;line-height:1}
+.hb-num{font-family:var(--latin);font-weight:600;font-size:clamp(2.7rem,9vw,3.5rem);color:#fff;letter-spacing:.01em}
+.hb-yen{font-family:var(--serif);font-size:1.35rem;color:#fff;margin-bottom:9px}
+.hb-tax{font-size:.74rem;color:rgba(255,255,255,.68);margin-bottom:11px;margin-left:2px}
+.hb-sub{font-size:.78rem;color:rgba(255,255,255,.78);margin-top:7px}
+.hb-cta{margin-top:18px;min-width:280px}
+.hb-link{display:inline-block;margin-top:14px;font-size:.78rem;color:rgba(255,255,255,.82);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.4)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(54px,8vh,108px);z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(246,243,236,0) 0%,rgba(246,243,236,.45) 60%,var(--paper) 100%)}
+.scrollcue{position:absolute;left:50%;bottom:13px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gold-deep);font-family:var(--label);font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;transition:opacity .5s}
 .scrollcue.hide{opacity:0;pointer-events:none}
 .sc-chev{display:flex;flex-direction:column;align-items:center;height:18px}
 .sc-chev i{width:9px;height:9px;border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);margin-top:-4px;animation:scchev 1.5s ease-in-out infinite}
 .sc-chev i:nth-child(2){animation-delay:.2s}
 @keyframes scchev{0%{opacity:.2;transform:rotate(45deg) translate(-2px,-2px)}50%{opacity:1}100%{opacity:.2;transform:rotate(45deg) translate(2px,2px)}}
 @media(min-width:561px){
-  .hero{min-height:100svh;align-items:center;padding:26px 0}
-  .hero .hero-poster{width:auto;max-width:min(500px,44vw);max-height:92vh;border-radius:10px;box-shadow:0 50px 120px -38px rgba(0,0,0,.85)}
-}
-/* hero lead band (price section image under the poster) */
-.hero-lead{background:var(--paper);padding:0}
-.pl-wrap{position:relative;line-height:0;margin:0 auto;width:100%;max-width:500px}
-.pl-img{width:100%;display:block}
-.pl-hot{position:absolute;display:block;z-index:2;border-radius:999px}
-.pl-buy{left:8%;top:65%;width:84%;height:9%}
-.pl-ing{left:8%;top:74%;width:84%;height:8.5%}
-@media(min-width:561px){
-  .hero-lead{padding:clamp(24px,4vw,56px) 0}
-  .pl-img{border-radius:14px}
-  .pl-wrap{box-shadow:0 30px 70px -36px rgba(28,26,21,.5);border-radius:14px}
+  .hero{min-height:100svh}
+  .hero-stack{flex-direction:row;justify-content:center;align-items:center;gap:clamp(40px,5vw,76px);max-width:1080px;margin:0 auto;padding:80px 28px 88px}
+  .hero-poster{max-width:min(400px,38vw);max-height:74vh}
+  .hero-buy{text-align:left;flex:0 1 360px}
+  .hb-price{justify-content:flex-start}
+  .hb-cta{min-width:300px}
 }
 
 /* ---------- buttons ---------- */
@@ -419,18 +421,20 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 <!-- ============ HERO (POP poster) ============ -->
 <section class="hero" id="top">
   <img class="hero-bgblur" src="assets/img/hero-pop.jpg" alt="" aria-hidden="true">
-  <img class="hero-poster" src="assets/img/hero-pop.jpg" alt="HBK BY EYE SOUND まつ毛美容液 SERUM＋ パワーアップして新登場。ハリ・ボリューム全部盛り。">
-  <a href="#price" class="scrollcue" aria-label="下にスクロール">
+  <div class="hero-stack">
+    <img class="hero-poster" src="assets/img/hero-pop.jpg" alt="HBK BY EYE SOUND まつ毛美容液 SERUM＋ パワーアップして新登場。ハリ・ボリューム全部盛り。">
+    <div class="hero-buy">
+      <span class="hb-tag">初回限定 10%OFF</span>
+      <p class="hb-price"><span class="hb-num">14,850</span><span class="hb-yen">円</span><span class="hb-tax">(税込)</span></p>
+      <p class="hb-sub">通常16,500円 ／ 2ヶ月分・送料別</p>
+      <a href="#" class="btn btn-fill hb-cta">今すぐ購入する <span class="ar">→</span></a>
+      <a href="#offer" class="hb-link">定期コースの特典を見る</a>
+    </div>
+  </div>
+  <a href="#endorse" class="scrollcue" aria-label="下にスクロール">
     <span class="sc-label">Scroll</span>
     <span class="sc-chev" aria-hidden="true"><i></i><i></i></span>
   </a>
-</section>
-<section class="hero-lead" id="price">
-  <div class="pl-wrap reveal">
-    <img class="pl-img" src="assets/img/price-fv.jpg" alt="有機JAS認定の高品質フルボ酸使用。初回限定10%OFF、14,850円（税込）。通常16,500円／2ヶ月分・送料別。今すぐ購入する。成分・処方を詳しく見る。">
-    <a class="pl-hot pl-buy" href="#offer" aria-label="今すぐ購入する"></a>
-    <a class="pl-hot pl-ing" href="#formula" aria-label="成分・処方を詳しく見る"></a>
-  </div>
 </section>
 
 <!-- ============ ENDORSEMENT (一条響) ============ -->
@@ -567,9 +571,11 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 </section>
 
 <!-- ============ COMPAT (エクステ・パーマ併用) ============ -->
-<section class="compat" id="compat">
-  <div class="compat-inner reveal">
-    <img src="assets/img/compat.jpg" alt="まつ毛パーマやまつ毛エクステとの併用も可能！一条響がこれまで様々なまつ毛美容液を試し続けてきた経験から、まつ毛パーマ・まつ毛エクステとの相性は非常に重要な要素だと判断。まつ毛を育てるだけでなく、その後のメイクの仕上がりまで考えてつくられた商品です。">
+<section class="compat-text pad" id="compat">
+  <div class="wrap narrow center reveal">
+    <span class="eyebrow">Compatible</span>
+    <h2 class="title" style="margin-top:18px">まつ毛パーマ・エクステとの<br>併用も可能。</h2>
+    <p class="body" style="margin-top:24px">一条響がこれまで様々なまつ毛美容液を試し続けてきた経験から、まつ毛パーマ・まつ毛エクステとの相性は非常に重要な要素だと判断。まつ毛を育てるだけでなく、その後のメイクの仕上がりまで考えてつくられた商品です。</p>
   </div>
 </section>
 
