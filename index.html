@@ -64,34 +64,20 @@ header.site.solid .brand .logo-b{opacity:1}
 header.site:not(.solid) .nav-cta{color:#fff;border-color:rgba(255,255,255,.6)}
 .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:#fff}
 
-/* ---------- hero (POP poster + price/cart) ---------- */
-.hero{position:relative;background:#0a0b0e;overflow:hidden;display:flex;justify-content:center;align-items:center}
+/* ---------- hero (POP poster) ---------- */
+.hero{position:relative;background:#0a0b0e;overflow:hidden;display:flex;justify-content:center;align-items:stretch}
 .hero .hero-bgblur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(38px) brightness(.42);transform:scale(1.18);z-index:0}
-.hero-stack{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2.6vh,28px);width:100%;padding:52px 22px 92px}
-.hero-poster{display:block;width:100%;max-width:300px;max-height:50vh;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 40px 90px -34px rgba(0,0,0,.85)}
-.hero-buy{text-align:center;color:#fff;max-width:380px}
-.hb-tag{display:inline-block;font-size:.72rem;letter-spacing:.06em;font-weight:700;background:var(--gold);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:12px}
-.hb-price{display:flex;align-items:flex-end;justify-content:center;gap:3px;line-height:1}
-.hb-num{font-family:var(--latin);font-weight:600;font-size:clamp(2.7rem,9vw,3.5rem);color:#fff;letter-spacing:.01em}
-.hb-yen{font-family:var(--serif);font-size:1.35rem;color:#fff;margin-bottom:9px}
-.hb-tax{font-size:.74rem;color:rgba(255,255,255,.68);margin-bottom:11px;margin-left:2px}
-.hb-sub{font-size:.78rem;color:rgba(255,255,255,.78);margin-top:7px}
-.hb-cta{margin-top:18px;min-width:280px}
-.hb-link{display:inline-block;margin-top:14px;font-size:.78rem;color:rgba(255,255,255,.82);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.4)}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(54px,8vh,108px);z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(246,243,236,0) 0%,rgba(246,243,236,.45) 60%,var(--paper) 100%)}
-.scrollcue{position:absolute;left:50%;bottom:13px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gold-deep);font-family:var(--label);font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;transition:opacity .5s}
+.hero .hero-poster{position:relative;z-index:1;display:block;width:100%;height:auto;margin:0 auto}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(64px,9vh,130px);z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(246,243,236,0) 0%,rgba(246,243,236,.45) 58%,var(--paper) 100%)}
+.scrollcue{position:absolute;left:50%;bottom:80px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:7px;color:#fff;font-family:var(--label);font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;transition:opacity .5s;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 .scrollcue.hide{opacity:0;pointer-events:none}
 .sc-chev{display:flex;flex-direction:column;align-items:center;height:18px}
-.sc-chev i{width:9px;height:9px;border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);margin-top:-4px;animation:scchev 1.5s ease-in-out infinite}
+.sc-chev i{width:9px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;margin-top:-4px;animation:scchev 1.5s ease-in-out infinite}
 .sc-chev i:nth-child(2){animation-delay:.2s}
 @keyframes scchev{0%{opacity:.2;transform:rotate(45deg) translate(-2px,-2px)}50%{opacity:1}100%{opacity:.2;transform:rotate(45deg) translate(2px,2px)}}
 @media(min-width:561px){
-  .hero{min-height:100svh}
-  .hero-stack{flex-direction:row;justify-content:center;align-items:center;gap:clamp(40px,5vw,76px);max-width:1080px;margin:0 auto;padding:80px 28px 88px}
-  .hero-poster{max-width:min(400px,38vw);max-height:74vh}
-  .hero-buy{text-align:left;flex:0 1 360px}
-  .hb-price{justify-content:flex-start}
-  .hb-cta{min-width:300px}
+  .hero{min-height:100svh;align-items:center;padding:26px 0}
+  .hero .hero-poster{width:auto;max-width:min(500px,44vw);max-height:92vh;border-radius:10px;box-shadow:0 50px 120px -38px rgba(0,0,0,.85)}
 }
 
 /* ---------- buttons ---------- */
@@ -357,7 +343,7 @@ section{position:relative}
 .final .lead{margin:24px auto 36px}
 
 /* ---------- footer ---------- */
-footer{background:linear-gradient(180deg,var(--paper) 0,var(--dark) 72px,var(--dark) 100%);color:rgba(239,233,221,.7);padding:82px 0 40px}
+footer{background:linear-gradient(180deg,var(--paper) 0,var(--dark) 72px,var(--dark) 100%);color:rgba(239,233,221,.7);padding:82px 0 92px}
 footer .flogo{width:128px;height:auto;margin:0 auto 22px;opacity:.95}
 footer .fnav{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;font-size:.78rem;letter-spacing:.06em;margin:24px 0}
 footer .fnav a{color:rgba(239,233,221,.7);transition:.3s}footer .fnav a:hover{color:var(--gold-light)}
@@ -365,11 +351,15 @@ footer .legal{font-size:.68rem;line-height:1.9;color:rgba(239,233,221,.4);max-wi
 footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margin-top:26px;color:rgba(239,233,221,.4)}
 
 /* ---------- mobile sticky cta ---------- */
-.mcta{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(22,20,15,.94);backdrop-filter:blur(12px);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;gap:10px;transform:translateY(120%);transition:transform .5s cubic-bezier(.2,.7,.2,1);box-shadow:0 -8px 30px rgba(0,0,0,.3)}
-.mcta.show{transform:none}
-@media(min-width:861px){.mcta{max-width:440px;left:auto;right:24px;bottom:24px;border-radius:999px;padding:10px;box-shadow:0 16px 40px rgba(0,0,0,.4)}}
-.mcta .btn{flex:1;padding:15px 10px;font-size:.82rem}
-.mcta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(20,18,14,.96);backdrop-filter:blur(14px);box-shadow:0 -8px 30px rgba(0,0,0,.34);padding-bottom:env(safe-area-inset-bottom)}
+.sb-inner{max-width:680px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.sb-info{display:flex;flex-direction:column;line-height:1.15;color:#fff;flex:0 0 auto}
+.sb-tag{font-size:.6rem;letter-spacing:.04em;color:var(--gold-light);font-weight:700}
+.sb-price{font-family:var(--serif);white-space:nowrap}
+.sb-price b{font-family:var(--latin);font-size:1.4rem;font-weight:600}
+.sb-price small{font-size:.66rem;color:rgba(255,255,255,.68)}
+.sb-cta{flex:1;min-width:0;padding:15px 14px;font-size:.86rem}
+@media(min-width:561px){.sb-cta{flex:0 0 auto;min-width:300px}.sb-inner{padding:12px 20px}}
 
 @media(max-width:860px){
   .target .grid{grid-template-columns:1fr}
@@ -421,16 +411,7 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
 <!-- ============ HERO (POP poster) ============ -->
 <section class="hero" id="top">
   <img class="hero-bgblur" src="assets/img/hero-pop.jpg" alt="" aria-hidden="true">
-  <div class="hero-stack">
-    <img class="hero-poster" src="assets/img/hero-pop.jpg" alt="HBK BY EYE SOUND まつ毛美容液 SERUM＋ パワーアップして新登場。ハリ・ボリューム全部盛り。">
-    <div class="hero-buy">
-      <span class="hb-tag">初回限定 10%OFF</span>
-      <p class="hb-price"><span class="hb-num">14,850</span><span class="hb-yen">円</span><span class="hb-tax">(税込)</span></p>
-      <p class="hb-sub">通常16,500円 ／ 2ヶ月分・送料別</p>
-      <a href="#" class="btn btn-fill hb-cta">今すぐ購入する <span class="ar">→</span></a>
-      <a href="#offer" class="hb-link">定期コースの特典を見る</a>
-    </div>
-  </div>
+  <img class="hero-poster" src="assets/img/hero-pop.jpg" alt="HBK BY EYE SOUND まつ毛美容液 SERUM＋ パワーアップして新登場。ハリ・ボリューム全部盛り。">
   <a href="#endorse" class="scrollcue" aria-label="下にスクロール">
     <span class="sc-label">Scroll</span>
     <span class="sc-chev" aria-hidden="true"><i></i><i></i></span>
@@ -678,10 +659,15 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   </div>
 </footer>
 
-<!-- ============ MOBILE STICKY CTA ============ -->
-<div class="mcta" id="mcta">
-  <a href="#formula" class="btn btn-ghost">成分を見る</a>
-  <a href="#offer" class="btn btn-fill">今すぐ購入 <span class="ar">→</span></a>
+<!-- ============ STICKY PURCHASE BAR ============ -->
+<div class="stickybar" id="mcta">
+  <div class="sb-inner">
+    <div class="sb-info">
+      <span class="sb-tag">初回限定 10%OFF</span>
+      <span class="sb-price"><b>14,850</b>円<small> (税込)</small></span>
+    </div>
+    <a href="#" class="btn btn-fill sb-cta">今すぐ購入する <span class="ar">→</span></a>
+  </div>
 </div>
 
 <script>
@@ -690,7 +676,6 @@ const hd=document.getElementById('hd'), mcta=document.getElementById('mcta'), he
 const onScroll=()=>{
   const y=window.scrollY;
   hd.classList.toggle('solid', y>60);
-  mcta.classList.toggle('show', y>window.innerHeight*.85);
   if(scue) scue.classList.toggle('hide', y>40);
 };
 window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
