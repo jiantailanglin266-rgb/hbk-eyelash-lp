@@ -42,6 +42,7 @@ a{color:inherit;text-decoration:none}
 .eyebrow{font-family:var(--label);font-weight:400;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);padding-left:.42em}
 .kicker{font-family:var(--latin);font-style:italic;font-size:1.15rem;color:var(--gold-deep);letter-spacing:.02em}
 h2.title{font-family:var(--serif);font-weight:600;font-size:clamp(1.55rem,5.4vw,2.45rem);line-height:1.5;letter-spacing:.04em}
+.nb{display:inline-block}
 .lead{font-family:var(--serif);font-weight:400;font-size:clamp(1.05rem,3.4vw,1.3rem);line-height:2.3;letter-spacing:.06em}
 .body{font-size:.94rem;line-height:2.15;color:var(--ink-soft);font-weight:400}
 .rule{width:1px;height:64px;background:linear-gradient(var(--gold),transparent);margin:0 auto}
@@ -229,6 +230,18 @@ section{position:relative}
 .offer-benefits{width:min(500px,92%);margin:30px auto 6px;border-radius:14px;display:block;box-shadow:0 30px 70px -28px rgba(0,0,0,.7);position:relative;z-index:2}
 .offer-cta{margin-top:34px;position:relative;z-index:2}
 .offer-buy{min-width:min(500px,92%);font-size:1rem;padding:20px 40px}
+
+/* ---------- single purchase ---------- */
+.single{background:var(--paper)}
+.single-card{max-width:440px;margin:38px auto 0;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:38px 30px;box-shadow:0 26px 54px -34px rgba(28,26,21,.4)}
+.sp-plan{font-family:var(--label);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
+.sp-name{font-size:.86rem;color:var(--ink-soft);margin-top:10px}
+.sp-price{display:flex;align-items:flex-end;justify-content:center;gap:4px;margin:14px 0 4px}
+.sp-num{font-family:var(--latin);font-weight:600;font-size:3.2rem;line-height:.9;color:var(--ink)}
+.sp-yen{font-family:var(--serif);font-size:1.2rem;margin-bottom:8px}
+.sp-tax{font-size:.72rem;color:var(--ink-soft);margin-bottom:9px;margin-left:2px}
+.sp-note{font-size:.76rem;color:var(--ink-soft);margin-bottom:26px}
+.sp-buy{width:100%}
 
 /* ---------- product showcase ---------- */
 .product{background:var(--paper)}
@@ -451,7 +464,7 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   <div class="wrap">
     <div class="sechead center reveal">
       <span class="eyebrow">Key Ingredients</span>
-      <h2 class="title">2つの主役成分が、<br>まつ毛の“育つ力”を支える。</h2>
+      <h2 class="title"><span class="nb">2つの主役成分が、</span><span class="nb">まつ毛の“育つ力”を支える。</span></h2>
       <p class="body narrow" style="margin-top:22px;color:rgba(239,233,221,.72)">「土台を整える」フルボ酸と、「育てる」幹細胞エキス。役割の異なる2成分が連鎖して、まつ毛本来の強さと美しさを引き出します。</p>
     </div>
 
@@ -460,7 +473,7 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
       <div class="ing-feat-txt">
         <span class="ing-no">01</span>
         <span class="molecule">Fulvic Acid — under 1,000 Da</span>
-        <h3>有機JAS認定の<br>高品質フルボ酸</h3>
+        <h3><span class="nb">有機JAS認定の</span><span class="nb">高品質フルボ酸</span></h3>
         <p>土壌中の有機物が長い年月をかけて生成された、天然由来の低分子有機酸。極めて小さな分子だからこそ角質層を越えて毛包周辺まで届き、必要な栄養を“運び”、不要なものを“出す”。まつ毛が育つための「土台環境」そのものを整える、処方の要です。HBKは有機JAS認定の高品質フルボ酸を採用しています。</p>
         <ul class="feat-points">
           <li>超低分子だから届く、毛包深部へのアプローチ</li>
@@ -476,7 +489,7 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
       <div class="ing-feat-txt">
         <span class="ing-no">02</span>
         <span class="molecule">Hair Follicle Stem Cell Conditioned Media</span>
-        <h3>ヒト毛根幹細胞<br>順化培養エキス</h3>
+        <h3><span class="nb">ヒト毛根幹細胞</span><span class="nb">順化培養エキス</span></h3>
         <p>毛根由来の幹細胞を培養する過程で生まれる、保湿・コンディショニング成分を豊富に含むうるおいエキス。フルボ酸が整えた“土台”に直接働きかけ、まつ毛本来のハリ・コシをサポートします。「整える」から「育てる」へ——今回のリニューアル＋の主役となる成分です。</p>
         <ul class="feat-points">
           <li>整えられた土台環境に、ハリ・コシ感をチャージ</li>
@@ -498,7 +511,7 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
   <div class="wrap">
     <div class="sechead center reveal">
       <span class="eyebrow">The Product</span>
-      <h2 class="title">筆ペン型の、<br>直塗りアプリケーター。</h2>
+      <h2 class="title"><span class="nb">筆ペン型の、</span><span class="nb">直塗りアプリケーター。</span></h2>
       <p class="body narrow" style="margin-top:22px">まつ毛の生え際にもフィットする筆先で、必要な場所へ的確に。朝晩のケアに、すっと取り入れられる設計です。</p>
     </div>
     <div class="pg-hero reveal"><img src="assets/img/hbk_serumplus_06_m.jpg" alt="HBK BY EYESOUND EYELASH SERUM+ 本体とパッケージ"></div>
@@ -595,15 +608,28 @@ footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margi
     <div class="offer-cta reveal d1">
       <a href="#" class="btn btn-fill offer-buy">今すぐお得にはじめてみる <span class="ar">→</span></a>
     </div>
-    <div class="single-opt reveal">
-      <span>単品（2ヶ月分・通常価格）</span><b>16,500円<small style="font-weight:400;font-size:.8em"> (税込)</small></b>
-    </div>
     <div class="terms reveal">
       <p>○ 初回は10%OFFの14,850円（税込・※別途送料）でお届けし、2回目以降は15%OFFの14,000円（税込・※別途送料）でお届けします。</p>
       <p>○ 2回目は初回ご注文から60日（2ヶ月）ごとに1本お届けします。</p>
       <p>○ 初回商品の到着後よりいつでもお電話にて解約が可能です。<span class="tel">080-4915-0506</span>（受付時間 14時～17時／土日祝除く）</p>
       <p>○ お客様からお申し出を頂くまでは契約は自動更新となります。配送予定月の1日が決済のタイミングとなりますので、配送予定月の前月の25日までにご連絡頂く必要があります。（例）次回配送予定が5月15日の場合、4月25日迄にご連絡。</p>
       <p>○ 送料：800円（※沖縄・離島は2,000円となります）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SINGLE PURCHASE ============ -->
+<section class="single pad" id="single">
+  <div class="wrap narrow center reveal">
+    <span class="eyebrow">Single Purchase</span>
+    <h2 class="title" style="margin-top:16px"><span class="nb">定期に縛られず、</span><span class="nb">1本ずつ。</span></h2>
+    <p class="body" style="margin-top:20px">まずは試してみたい方へ。単品でのご購入も承っています。</p>
+    <div class="single-card">
+      <span class="sp-plan">単品購入</span>
+      <p class="sp-name">HBKまつ毛美容液 SERUM＋（1本）</p>
+      <div class="sp-price"><span class="sp-num">16,500</span><span class="sp-yen">円</span><span class="sp-tax">税込</span></div>
+      <p class="sp-note">※ 別途送料／お届けは1回のみ（自動更新なし）</p>
+      <a href="#" class="btn btn-ink sp-buy">単品を購入する <span class="ar">→</span></a>
     </div>
   </div>
 </section>
