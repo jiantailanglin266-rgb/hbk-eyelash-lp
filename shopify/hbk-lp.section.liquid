@@ -1,0 +1,744 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js';</script>
+<style>
+:root{
+  --ink:#1c1a15;
+  --ink-soft:#4a463d;
+  --paper:#f6f3ec;
+  --paper-2:#efe9dd;
+  --white:#fcfbf8;
+  --gold:#a98a5c;
+  --gold-deep:#8a6e44;
+  --gold-light:#cbb591;
+  --line:rgba(28,26,21,.14);
+  --dark:#16140f;
+  --dark-2:#211e17;
+  --serif:"Shippori Mincho",serif;
+  --sans:"Zen Kaku Gothic New",sans-serif;
+  --latin:"Cormorant Garamond",serif;
+  --label:"Jost",sans-serif;
+  --maxw:1040px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.95;font-weight:400;letter-spacing:.02em;overflow-x:hidden;font-feature-settings:"palt"}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.narrow{max-width:680px;margin-left:auto;margin-right:auto}
+
+/* ---------- typography helpers ---------- */
+.eyebrow{font-family:var(--label);font-weight:400;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);padding-left:.42em}
+.kicker{font-family:var(--latin);font-style:italic;font-size:1.15rem;color:var(--gold-deep);letter-spacing:.02em}
+h2.title{font-family:var(--serif);font-weight:600;font-size:clamp(1.55rem,5.4vw,2.45rem);line-height:1.5;letter-spacing:.04em}
+.nb{display:inline-block}
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.gnum{font-family:var(--serif);font-weight:700;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;line-height:1;letter-spacing:.005em;background:linear-gradient(180deg,#f7ead0 0%,#e8cb82 24%,#cba24f 47%,#f4e4a8 60%,#bd9542 80%,#ddc377 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;display:inline-block}
+.gnum .yen{font-style:normal;font-weight:600;font-size:.46em;margin-left:1px}
+.lead{font-family:var(--serif);font-weight:400;font-size:clamp(1.05rem,3.4vw,1.3rem);line-height:2.3;letter-spacing:.06em}
+.body{font-size:.94rem;line-height:2.15;color:var(--ink-soft);font-weight:400}
+.rule{width:1px;height:64px;background:linear-gradient(var(--gold),transparent);margin:0 auto}
+.tag{display:inline-block;font-family:var(--label);font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);border-radius:999px;padding:7px 18px}
+
+/* ---------- reveal ---------- */
+.reveal{transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .reveal{opacity:0;transform:translateY(34px)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+/* ---------- header ---------- */
+header.site{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:background .5s,padding .5s,box-shadow .5s,opacity .45s,transform .45s}
+header.site.solid{background:rgba(246,243,236,.92);backdrop-filter:blur(14px);padding:13px 28px;box-shadow:0 1px 0 var(--line);opacity:1;pointer-events:auto;transform:none}
+.brand{position:relative;display:inline-block;width:92px;line-height:0}
+.brand img{display:block;width:100%;height:auto}
+.brand .logo-b{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+header.site.solid .brand .logo-w{opacity:0;transition:opacity .5s}
+header.site.solid .brand .logo-b{opacity:1}
+.nav-cta{font-family:var(--label);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:10px 22px;transition:.4s;color:var(--ink)}
+header.site:not(.solid) .nav-cta{color:#fff;border-color:rgba(255,255,255,.6)}
+.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+
+/* ---------- hero (POP poster) ---------- */
+.hero{position:relative;background:#0a0b0e;overflow:hidden;display:flex;justify-content:center;align-items:stretch}
+.hero .hero-bgblur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(38px) brightness(.42);transform:scale(1.18);z-index:0}
+.hero .hero-poster{position:relative;z-index:1;display:block;width:100%;height:auto;margin:0 auto}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(64px,9vh,130px);z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(246,243,236,0) 0%,rgba(246,243,236,.45) 58%,var(--paper) 100%)}
+.scrollcue{position:absolute;left:50%;bottom:80px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:7px;color:#fff;font-family:var(--label);font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;transition:opacity .5s;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.scrollcue.hide{opacity:0;pointer-events:none}
+.sc-chev{display:flex;flex-direction:column;align-items:center;height:18px}
+.sc-chev i{width:9px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;margin-top:-4px;animation:scchev 1.5s ease-in-out infinite}
+.sc-chev i:nth-child(2){animation-delay:.2s}
+@keyframes scchev{0%{opacity:.2;transform:rotate(45deg) translate(-2px,-2px)}50%{opacity:1}100%{opacity:.2;transform:rotate(45deg) translate(2px,2px)}}
+@media(min-width:561px){
+  .hero{min-height:100svh;align-items:center;padding:26px 0}
+  .hero .hero-poster{width:auto;max-width:min(500px,44vw);max-height:92vh;border-radius:10px;box-shadow:0 50px 120px -38px rgba(0,0,0,.85)}
+}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.7em;font-family:var(--sans);font-weight:500;font-size:.88rem;letter-spacing:.12em;padding:17px 36px;border-radius:999px;transition:.45s cubic-bezier(.2,.7,.2,1);cursor:pointer;border:1px solid transparent;white-space:nowrap}
+.btn .ar{font-family:var(--label);transition:transform .45s}
+.btn:hover .ar{transform:translateX(5px)}
+.btn-fill{background:var(--gold);color:#fff;box-shadow:0 14px 30px -12px rgba(138,110,68,.7)}
+.btn-fill:hover{background:var(--gold-deep);box-shadow:0 18px 40px -12px rgba(138,110,68,.85)}
+.btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.btn-line:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#000}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-deep)}
+
+/* ---------- section base ---------- */
+section{position:relative}
+.pad{padding:clamp(84px,13vw,150px) 0}
+.center{text-align:center}
+.sechead{margin-bottom:54px}
+.sechead .eyebrow{display:block;margin-bottom:18px}
+.sechead h2.title{margin-bottom:0}
+
+/* ---------- concept ---------- */
+.concept,.diff{background:var(--paper);text-align:center;padding:0}
+.concept .wrap,.diff .wrap{max-width:none;padding:0;width:100%;margin:0 auto}
+.concept picture,.diff picture{display:block}
+.concept img,.diff img{width:100%;max-width:none;margin:0 auto;display:block;border-radius:0;box-shadow:none}
+@media(min-width:561px){
+  .concept,.diff{padding:clamp(34px,4.5vw,72px) 0}
+  .concept .wrap,.diff .wrap{max-width:1040px;padding:0 28px}
+  .concept img,.diff img{border-radius:16px;box-shadow:0 36px 80px -40px rgba(28,26,21,.5)}
+}
+.concept .big{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,5.6vw,2.5rem);line-height:1.95;letter-spacing:.06em;margin:30px 0}
+.concept .big b{font-weight:700;color:var(--gold-deep);background:linear-gradient(transparent 62%,rgba(169,138,92,.16) 62%)}
+.concept .quote{font-family:var(--serif);font-size:1rem;color:var(--ink-soft);border-left:2px solid var(--gold);padding-left:22px;text-align:left;margin:46px auto 0;max-width:32em;line-height:2.2;font-style:normal}
+
+/* ---------- target band ---------- */
+.target{background:var(--dark);color:#efe9dd;overflow:hidden}
+.target .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch}
+.target .txt{padding:clamp(64px,9vw,120px) clamp(28px,6vw,80px)}
+.target .ph{position:relative;min-height:380px;background:#0e0c09}
+.target .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.target .eyebrow{color:var(--gold-light)}
+.target h2.title{color:#fff;margin:18px 0 26px}
+.target .body{color:rgba(239,233,221,.72)}
+
+/* ---------- science (dark) ---------- */
+.science{background:var(--dark-2);color:#efe9dd}
+.science .kicker{color:var(--gold-light)}
+.science .lead{color:#f3eee3}
+.science .body{color:rgba(239,233,221,.7)}
+.fulvic-def{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center;margin-top:30px}
+.fulvic-def .img{border-radius:4px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.molecule{font-family:var(--latin);font-style:italic;font-size:1.05rem;color:var(--gold-light);margin-bottom:10px}
+
+/* works cards */
+.works{margin-top:90px}
+.works-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(239,233,221,.12);border:1px solid rgba(239,233,221,.12)}
+.work{background:var(--dark-2);padding:clamp(30px,4vw,46px);position:relative;transition:background .5s}
+.work:hover{background:#2a261d}
+.work .no{font-family:var(--latin);font-style:italic;font-size:2.4rem;color:var(--gold);line-height:1;opacity:.85}
+.work h4{font-family:var(--serif);font-weight:600;font-size:1.18rem;color:#fff;margin:16px 0 12px;letter-spacing:.04em}
+.work p{font-size:.85rem;line-height:1.95;color:rgba(239,233,221,.66)}
+/* flow */
+.flow{margin-top:64px;text-align:center}
+.flow .chain{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 6px;margin-top:26px}
+.flow .node{font-family:var(--serif);font-size:.92rem;letter-spacing:.08em;color:#f3eee3;border:1px solid rgba(203,181,145,.4);border-radius:999px;padding:11px 22px;background:rgba(169,138,92,.08)}
+.flow .arr{color:var(--gold);font-family:var(--label)}
+.flow .cap{margin-top:24px;font-size:.85rem;color:rgba(239,233,221,.6)}
+
+/* ---------- quality ---------- */
+.quality{background:var(--paper-2)}
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.q-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:42px 30px;text-align:center;transition:.5s}
+.q-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -34px rgba(28,26,21,.4)}
+.q-card .ic{font-family:var(--latin);font-style:italic;font-size:2rem;color:var(--gold);margin-bottom:14px}
+.q-card h4{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin-bottom:14px;letter-spacing:.04em}
+.q-card p{font-size:.82rem;line-height:1.95;color:var(--ink-soft)}
+.q-note{margin-top:40px;font-size:.74rem;color:var(--ink-soft);text-align:center;opacity:.8}
+
+/* ---------- steps ---------- */
+.steps{background:var(--paper)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,60px);padding:46px 0;border-top:1px solid var(--line);align-items:start}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step .no{font-family:var(--latin);font-style:italic;font-size:clamp(2.6rem,8vw,4rem);color:var(--gold);line-height:.9}
+.step .label{font-family:var(--label);font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:8px}
+.step h4{font-family:var(--serif);font-weight:600;font-size:clamp(1.2rem,4vw,1.5rem);margin-bottom:14px;letter-spacing:.05em}
+.step p{font-size:.9rem;line-height:2.1;color:var(--ink-soft);max-width:34em}
+
+/* ---------- changes ---------- */
+.changes{background:var(--white)}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,46px) clamp(28px,5vw,64px);margin-top:56px}
+.change{border-top:1px solid var(--line);padding-top:26px}
+.change .n{font-family:var(--latin);font-style:italic;font-size:1.1rem;color:var(--gold)}
+.change h4{font-family:var(--serif);font-weight:600;font-size:1.22rem;margin:8px 0 12px;letter-spacing:.04em}
+.change p{font-size:.86rem;line-height:2.05;color:var(--ink-soft)}
+.disclaimer{margin-top:54px;font-size:.74rem;line-height:1.9;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px 24px}
+
+/* ---------- ingredients ---------- */
+.ingredients{background:linear-gradient(180deg,var(--paper) 0,var(--dark) 80px,var(--dark) calc(100% - 80px),var(--paper) 100%);color:#efe9dd}
+.ing-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center}
+.ing-list{margin-top:10px}
+.ing-list li{list-style:none;border-bottom:1px solid rgba(239,233,221,.14);padding:22px 0}
+.ing-list li h5{font-family:var(--serif);font-weight:600;font-size:1.08rem;color:#fff;margin-bottom:8px;letter-spacing:.03em}
+.ing-list li p{font-size:.82rem;line-height:1.9;color:rgba(239,233,221,.66)}
+.ing .img{border-radius:4px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.ingredients .eyebrow{color:var(--gold-light)}
+.ingredients h2.title{color:#fff}
+
+/* ---------- how to use ---------- */
+.howto{background:var(--paper)}
+.howto .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,72px);align-items:center}
+.howto .img{border-radius:6px;overflow:hidden}
+.usteps{counter-reset:u}
+.usteps li{list-style:none;display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.usteps li::before{counter-increment:u;content:"0" counter(u);font-family:var(--latin);font-style:italic;font-size:1.5rem;color:var(--gold);flex:none;line-height:1.2}
+.usteps li div h5{font-family:var(--serif);font-weight:600;font-size:1.02rem;margin-bottom:5px}
+.usteps li div p{font-size:.83rem;color:var(--ink-soft);line-height:1.9}
+
+/* ---------- offer ---------- */
+.offer{background:linear-gradient(180deg,var(--dark) 0,var(--dark) calc(100% - 88px),var(--paper) 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+.offer::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(169,138,92,.28),transparent 65%);top:-180px;right:-120px}
+.offer .eyebrow{color:var(--gold-light)}
+.offer h2.title{color:#fff;margin:18px 0 10px}
+.price-card{max-width:480px;margin:46px auto 0;background:linear-gradient(180deg,#211e17,#19170f);border:1px solid rgba(203,181,145,.32);border-radius:14px;padding:46px 36px;position:relative}
+.price-card .plan{font-family:var(--label);letter-spacing:.28em;font-size:.72rem;text-transform:uppercase;color:var(--gold-light)}
+.price-card .was{font-size:.86rem;color:rgba(239,233,221,.72);margin-top:18px}
+.price-card .was s{text-decoration:line-through;text-decoration-color:rgba(239,233,221,.45)}
+.price-card .now{display:flex;align-items:flex-end;justify-content:center;gap:4px;margin:8px 0 2px}
+.price-card .now .yen{font-family:var(--serif);font-size:1.5rem;margin-bottom:12px}
+.price-card .now .num{font-family:var(--latin);font-weight:500;font-size:clamp(3rem,13vw,4.3rem);line-height:.9;color:#fff;letter-spacing:.01em}
+.price-card .now .tax{font-size:.74rem;color:rgba(239,233,221,.6);margin-bottom:14px;margin-left:2px}
+.price-card .cycle{font-size:.94rem;font-weight:500;color:var(--gold-light);margin:2px 0 2px}
+.price-card .off{display:inline-block;background:var(--gold);color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.06em;padding:6px 18px;border-radius:999px;margin-bottom:10px}
+.price-card .cta-price{margin-top:14px;font-size:.8rem;color:rgba(239,233,221,.72)}
+.price-card .cta-price b{font-family:var(--serif);color:#fff;font-size:1.02rem;margin:0 2px}
+.offer .sub-offer{font-size:.92rem;letter-spacing:.06em;color:var(--gold-light);margin-top:14px}
+.single-opt{max-width:480px;margin:16px auto 0;display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid rgba(239,233,221,.18);border-radius:10px;padding:16px 22px;color:rgba(239,233,221,.82);font-size:.86rem;position:relative;z-index:2}
+.single-opt b{font-family:var(--serif);font-size:1.08rem;color:#fff;font-weight:600;white-space:nowrap}
+.terms{max-width:580px;margin:32px auto 0;text-align:left;position:relative;z-index:2}
+.terms p{font-size:.73rem;line-height:1.9;color:rgba(239,233,221,.62);padding-left:1.15em;text-indent:-1.15em;margin-bottom:9px}
+.terms .tel{color:var(--gold-light);font-weight:600;letter-spacing:.04em;white-space:nowrap}
+.price-card ul{text-align:left;margin:26px 0 30px;padding:0}
+.price-card ul li{list-style:none;font-size:.84rem;color:rgba(239,233,221,.85);padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed rgba(239,233,221,.14)}
+.price-card ul li::before{content:"✓";position:absolute;left:0;color:var(--gold-light)}
+.offer .micro{margin-top:22px;font-size:.72rem;color:rgba(239,233,221,.55);line-height:1.8}
+.offer-prod{width:min(240px,64%);margin:36px auto 4px;border-radius:12px;box-shadow:0 34px 70px -24px rgba(0,0,0,.7);position:relative;z-index:2}
+.offer-benefits{width:min(500px,92%);margin:30px auto 6px;border-radius:14px;display:block;box-shadow:0 30px 70px -28px rgba(0,0,0,.7);position:relative;z-index:2}
+.offer-cta{margin-top:34px;position:relative;z-index:2}
+.offer-buy{min-width:min(500px,92%);font-size:1rem;padding:20px 40px}
+
+/* ---------- single purchase ---------- */
+.single{background:var(--paper)}
+.single-card{max-width:440px;margin:38px auto 0;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:38px 30px;box-shadow:0 26px 54px -34px rgba(28,26,21,.4)}
+.sp-plan{font-family:var(--label);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
+.sp-name{font-size:.86rem;color:var(--ink-soft);margin-top:10px}
+.sp-price{display:flex;align-items:baseline;justify-content:center;gap:5px;margin:14px 0 4px}
+.sp-price .gnum{font-size:3.4rem}
+.sp-price .tax{font-size:.74rem;color:var(--ink-soft)}
+.sp-note{font-size:.76rem;color:var(--ink-soft);margin-bottom:26px}
+.sp-buy{width:100%}
+
+/* ---------- product showcase ---------- */
+.product{background:var(--paper)}
+.pg-hero{border-radius:8px;overflow:hidden;margin-bottom:16px;box-shadow:0 30px 60px -38px rgba(28,26,21,.5)}
+.pg-hero img{width:100%;height:clamp(220px,40vw,460px);object-fit:cover;display:block}
+.pgallery{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}
+.pg-main img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;min-height:300px}
+.pg-side{display:grid;grid-template-rows:1fr 1fr;gap:16px}
+.pg-side img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;min-height:142px}
+.product .specs{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:42px}
+.product .specs span{font-family:var(--label);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--line);border-radius:999px;padding:9px 20px}
+
+/* ---------- result band (full-bleed) ---------- */
+.result-band{position:relative;width:100%;height:clamp(400px,64vh,650px);overflow:hidden;background:#cfc6c2}
+.result-band img{width:100%;height:100%;object-fit:cover;object-position:50% 24%}
+.result-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,14,.42),rgba(20,18,14,0) 58%),linear-gradient(0deg,rgba(20,18,14,.5),rgba(20,18,14,0) 42%)}
+.result-band .cap{position:absolute;left:0;bottom:0;z-index:2;color:#fff;width:100%;max-width:var(--maxw);left:50%;transform:translateX(-50%);padding:clamp(28px,5vw,64px)}
+.result-band .cap .eyebrow{color:#e9dcc4}
+.result-band .cap h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.55rem,5.4vw,2.5rem);line-height:1.56;margin-top:14px;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.35)}
+.result-band .cap .note{margin-top:14px;font-size:.68rem;letter-spacing:.04em;color:rgba(255,255,255,.7)}
+
+/* ---------- ritual band (full-bleed) ---------- */
+.ritual{position:relative;width:100%;min-height:clamp(460px,80vh,720px);display:flex;align-items:center;overflow:hidden;background:#e7ddd2}
+.ritual>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center}
+.ritual::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.22) 46%,rgba(20,18,14,0) 76%)}
+.ritual .inner{position:relative;z-index:2;color:#fff;max-width:var(--maxw);margin:0 auto;width:100%;padding:0 28px}
+.ritual .eyebrow{color:#e9dcc4}
+.ritual h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,5.6vw,2.7rem);line-height:1.62;margin:18px 0 18px;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.35)}
+.ritual p{max-width:24em;font-size:.92rem;line-height:2.1;color:rgba(255,255,255,.92);text-shadow:0 1px 3px rgba(0,0,0,.6),0 1px 10px rgba(0,0,0,.4)}
+
+/* ---------- diff (renewal) ---------- */
+.diff{background:var(--paper)}
+.diff-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:22px;margin-top:8px}
+.diff-card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:clamp(26px,4vw,40px);text-align:center;display:flex;flex-direction:column}
+.diff-card.next{border-color:rgba(169,138,92,.5);box-shadow:0 30px 60px -34px rgba(169,138,92,.5)}
+.diff-card .dlabel{font-family:var(--label);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+.diff-card .dlabel.gold{color:var(--gold-deep)}
+.diff-card h4{font-family:var(--serif);font-weight:600;font-size:1.18rem;margin:14px 0 18px;letter-spacing:.03em}
+.diff-card h4 em{font-style:normal;color:var(--gold-deep);font-size:1.35em}
+.diff-card ul{list-style:none;display:flex;flex-direction:column;gap:0;margin:0 0 18px}
+.diff-card ul li{font-size:.92rem;color:var(--ink-soft);padding:10px 0;border-bottom:1px dashed var(--line)}
+.diff-card ul li.add{color:var(--gold-deep);font-weight:700;font-family:var(--serif);font-size:1.05rem;border-bottom:none}
+.diff-card p{font-size:.82rem;line-height:1.95;color:var(--ink-soft);margin-top:auto}
+.diff-arrow{display:flex;align-items:center;justify-content:center;font-family:var(--label);font-size:1.7rem;color:var(--gold)}
+
+/* ---------- key ingredients (featured) ---------- */
+.ingredients .sechead h2.title{color:#fff}
+.ing-feature{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:center;margin-top:60px}
+.ing-feature.rev .ing-feat-img{order:2}
+.ing-feat-img{border-radius:8px;overflow:hidden;box-shadow:0 40px 80px -36px rgba(0,0,0,.7)}
+.ing-feat-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:280px}
+.ing-no{font-family:var(--latin);font-style:italic;font-size:2.2rem;color:var(--gold);line-height:1}
+.ing-feat-txt .molecule{display:block;margin:10px 0 4px}
+.ing-feat-txt h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.4rem,4.4vw,2rem);line-height:1.5;color:#fff;letter-spacing:.03em;margin-bottom:18px}
+.ing-feat-txt>p{font-size:.9rem;line-height:2.05;color:rgba(239,233,221,.74)}
+.feat-points{list-style:none;margin-top:22px}
+.feat-points li{font-size:.84rem;line-height:1.8;color:rgba(239,233,221,.82);padding:13px 0 13px 26px;border-top:1px solid rgba(239,233,221,.14);position:relative}
+.feat-points li::before{content:"✓";position:absolute;left:0;color:var(--gold-light)}
+.ing-support{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:54px;padding-top:46px;border-top:1px solid rgba(239,233,221,.16)}
+.ing-support h5{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:#fff;margin-bottom:8px}
+.ing-support p{font-size:.82rem;line-height:1.9;color:rgba(239,233,221,.66)}
+
+/* ---------- compat (エクステ・パーマ併用) ---------- */
+.compat{background:var(--paper);padding:0}
+.compat-inner{position:relative;line-height:0;width:100%;margin:0 auto}
+.compat-inner img{width:100%;display:block}
+.compat-inner::before,.compat-inner::after{content:"";position:absolute;left:0;right:0;height:clamp(48px,8vw,110px);z-index:2;pointer-events:none}
+.compat-inner::before{top:0;background:linear-gradient(180deg,var(--paper),rgba(246,243,236,0))}
+.compat-inner::after{bottom:0;background:linear-gradient(0deg,var(--paper),rgba(246,243,236,0))}
+@media(min-width:561px){
+  .compat{padding:clamp(24px,3.5vw,56px) 0}
+  .compat-inner{max-width:500px}
+}
+
+/* ---------- before / after ---------- */
+.beforeafter{background:var(--paper)}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);margin-top:48px}
+.ba-grid.one{grid-template-columns:1fr;max-width:620px;margin-left:auto;margin-right:auto}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:10px}
+.ba-img{position:relative;border-radius:6px;overflow:hidden}
+.ba-img img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:1/1}
+.ba-tag{position:absolute;top:10px;left:10px;font-family:var(--label);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border-radius:999px;color:#fff}
+.ba-tag.before{background:rgba(28,26,21,.66)}
+.ba-tag.after{background:var(--gold)}
+
+/* ---------- hero price + jas badge ---------- */
+.jas-badge{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:.06em;color:#fff;background:rgba(169,138,92,.95);padding:7px 16px;border-radius:999px;margin-bottom:14px;box-shadow:0 6px 20px -6px rgba(0,0,0,.45)}
+.hero-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin-top:24px;color:#fff}
+.hero-price .hp-tag{font-size:.72rem;letter-spacing:.06em;background:var(--gold);color:#fff;font-weight:700;padding:6px 14px;border-radius:999px;align-self:center}
+.hero-price .hp-main{font-family:var(--serif);font-size:1.05rem;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.hero-price .hp-main b{font-family:var(--latin);font-weight:600;font-size:2.2rem;letter-spacing:.01em}
+.hero-price .hp-sub{font-size:.74rem;color:rgba(255,255,255,.85);text-shadow:0 1px 10px rgba(0,0,0,.5)}
+
+/* ---------- endorsement (一条響) ---------- */
+.endorse{background:var(--paper);padding:clamp(40px,7vw,82px) 0 clamp(20px,4vw,46px);text-align:center}
+.endorse .e-eyebrow{font-family:var(--label);font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px}
+.endorse img{width:100%;max-width:500px;margin:0 auto;display:block;border-radius:14px;box-shadow:0 34px 70px -32px rgba(28,26,21,.5)}
+
+/* ---------- faq ---------- */
+.faq{background:var(--paper)}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;padding:26px 44px 26px 8px;font-family:var(--serif);font-weight:500;font-size:1rem;letter-spacing:.03em;position:relative;display:flex;gap:14px;align-items:baseline}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .q{font-family:var(--latin);font-style:italic;color:var(--gold);flex:none}
+.acc summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--label);font-size:1.3rem;color:var(--gold);transition:transform .4s}
+.acc details[open] summary::after{content:"–"}
+.acc .a{padding:0 8px 28px 40px;font-size:.86rem;line-height:2.05;color:var(--ink-soft)}
+
+/* ---------- final cta ---------- */
+.final{background:var(--paper);text-align:center}
+.final .lead{margin:24px auto 36px}
+
+/* ---------- footer ---------- */
+footer{background:linear-gradient(180deg,var(--paper) 0,var(--dark) 72px,var(--dark) 100%);color:rgba(239,233,221,.7);padding:82px 0 92px}
+footer .flogo{width:128px;height:auto;margin:0 auto 22px;opacity:.95}
+footer .fnav{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;font-size:.78rem;letter-spacing:.06em;margin:24px 0}
+footer .fnav a{color:rgba(239,233,221,.7);transition:.3s}footer .fnav a:hover{color:var(--gold-light)}
+footer .legal{font-size:.68rem;line-height:1.9;color:rgba(239,233,221,.4);max-width:54em;margin:28px auto 0;text-align:center}
+footer .copy{font-family:var(--label);font-size:.66rem;letter-spacing:.2em;margin-top:26px;color:rgba(239,233,221,.4)}
+
+/* ---------- mobile sticky cta ---------- */
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(20,18,14,.96);backdrop-filter:blur(14px);box-shadow:0 -8px 30px rgba(0,0,0,.34);padding-bottom:env(safe-area-inset-bottom)}
+.sb-inner{max-width:680px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.sb-info{display:flex;flex-direction:column;line-height:1.15;color:#fff;flex:0 0 auto}
+.sb-tag{font-size:.6rem;letter-spacing:.04em;color:var(--gold-light);font-weight:700}
+.sb-price{white-space:nowrap;display:flex;align-items:baseline;gap:3px}
+.sb-price .gnum{font-size:1.6rem}
+.sb-price .tax{font-size:.64rem;color:rgba(255,255,255,.7)}
+.sb-cta{flex:1;min-width:0;padding:15px 14px;font-size:.86rem}
+@media(min-width:561px){.sb-cta{flex:0 0 auto;min-width:300px}.sb-inner{padding:12px 20px}}
+
+@media(max-width:860px){
+  .target .grid{grid-template-columns:1fr}
+  .target .ph{min-height:300px;order:-1}
+  .fulvic-def,.ing-grid,.howto .grid{grid-template-columns:1fr;gap:36px}
+  .works-grid{grid-template-columns:1fr}
+  .q-grid{grid-template-columns:1fr;gap:18px}
+  footer{padding-bottom:96px}
+  .pgallery{grid-template-columns:1fr}
+  .pg-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .pg-main img{min-height:340px}
+  .diff-grid{grid-template-columns:1fr;gap:14px}
+  .diff-arrow{transform:rotate(90deg)}
+  .ing-feature{grid-template-columns:1fr;gap:26px}
+  .ing-feature.rev .ing-feat-img{order:0}
+  .ing-support{grid-template-columns:1fr;gap:14px}
+  .ba-grid{grid-template-columns:1fr}
+  .ritual{align-items:flex-end;min-height:78vh}
+  .ritual .inner{padding-bottom:48px}
+  .ritual::after{background:linear-gradient(0deg,rgba(20,18,14,.72) 0%,rgba(20,18,14,.15) 58%,rgba(20,18,14,.1) 100%)}
+  .result-band img{object-position:50% 22%}
+}
+@media(max-width:560px){
+  .wrap{padding:0 22px}
+  .hero .inner{padding-bottom:54px}
+  .c-grid{grid-template-columns:1fr;gap:0}
+  .change{margin-top:0}
+  .nav-cta{display:none}
+  .concept,.diff{padding:0}
+  .concept img,.diff img{max-width:100%}
+  .hero{min-height:0;padding:0}
+  .step{grid-template-columns:1fr;gap:8px;padding:36px 0}
+  .step .no{font-size:3rem}
+  .price-card{padding:38px 24px}
+}
+</style>
+
+<!-- ============ HEADER ============ -->
+<header class="site" id="hd">
+  <a href="#top" class="brand" aria-label="HBK BY EYE SOUND">
+    <img loading="lazy" decoding="async" class="logo-w" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/logo-white.png" alt="HBK BY EYE SOUND">
+    <img loading="lazy" decoding="async" class="logo-b" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/logo-black.png" alt="">
+  </a>
+  <a href="#offer" class="nav-cta">定期コースを見る</a>
+</header>
+
+<!-- ============ HERO (POP poster) ============ -->
+<section class="hero" id="top">
+  <h1 class="vh">HBK BY EYE SOUND フルボ酸まつげ美容液 SERUM＋ ｜ 有機JAS認定の高品質フルボ酸とヒト毛根幹細胞順化培養エキスで、まつ毛を土台から育てるまつげ美容液</h1>
+  <img loading="eager" class="hero-bgblur" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/hero-pop.jpg?v=3" alt="" aria-hidden="true">
+  <img loading="eager" fetchpriority="high" class="hero-poster" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/hero-pop.jpg?v=3" alt="HBK BY EYE SOUND まつ毛美容液 SERUM＋ パワーアップして新登場ハリ・コシ・ボリューム全部盛り初回限定10%OFF 14,850円（税込）">
+  <a href="#endorse" class="scrollcue" aria-label="下にスクロール">
+    <span class="sc-label">Scroll</span>
+    <span class="sc-chev" aria-hidden="true"><i></i><i></i></span>
+  </a>
+</section>
+
+<!-- ============ ENDORSEMENT (一条響) ============ -->
+<section class="endorse" id="endorse">
+  <div class="wrap reveal">
+    <p class="e-eyebrow">Endorsement</p>
+    <img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/endorse-ichijo.jpg" alt="日本一のキャバ嬢 一条響が大絶賛！ 日本No.1キャバ嬢／年間売上7億／著書「億女」出版1人で年間7億円を売り上げ“億女”と呼ばれた美貌の秘訣が凝縮">
+  </div>
+</section>
+
+<!-- ============ CONCEPT ============ -->
+<section class="concept" id="concept">
+  <div class="wrap reveal">
+    <picture>
+      <source media="(max-width:560px)" srcset="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/concept-mobile.jpg?v=2">
+      <img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/concept.jpg?v=2" alt="まつ毛は変えるのではなく“整える”もの一時的な見た目の変化ではなくまつ毛が育つための「環境」そのものに着目するフルボ酸という天然由来成分の力で土台からアプローチするそれがHBKのまつげ美容液が掲げる哲学です「フルボ酸でまつ毛の土台から変える仕組みで納得して選ぶ“育てる”まつげ美容液」">
+    </picture>
+  </div>
+</section>
+
+<!-- ============ DIFF (RENEWAL) ============ -->
+<section class="diff" id="diff">
+  <div class="wrap reveal">
+    <picture>
+      <source media="(max-width:560px)" srcset="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/diff-mobile.jpg?v=2">
+      <img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/diff.jpg?v=2" alt="従来のまつ毛美容液との違いこれまでのHBKまつ毛美容液は「伸ばす」「増やす」に特化リニューアルしたHBKまつ毛美容液＋は従来の「伸ばす」「増やす」に加え「コシ・ハリ」にもアプローチまつ毛一本一本を強く美しく育てる処方へと進化しました">
+    </picture>
+  </div>
+</section>
+
+<!-- ============ KEY INGREDIENTS (FORMULATION) ============ -->
+<section class="ingredients pad" id="formula">
+  <div class="wrap">
+    <div class="sechead center reveal">
+      <span class="eyebrow">Key Ingredients</span>
+      <h2 class="title"><span class="nb">2つの主役成分が</span><span class="nb">まつ毛の“育つ力”を支える</span></h2>
+      <p class="body narrow" style="margin-top:22px;color:rgba(239,233,221,.72)">「土台を整える」フルボ酸と<br>「育てる」幹細胞エキス<br>役割の異なる2成分が連鎖して<br>まつ毛本来の強さと美しさを引き出します</p>
+    </div>
+
+    <div class="ing-feature reveal">
+      <div class="ing-feat-img"><img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/se_00243335_d_cm.jpg" alt="有機JAS認定の高品質フルボ酸配合まつげ美容液"></div>
+      <div class="ing-feat-txt">
+        <span class="ing-no">01</span>
+        <span class="molecule">Fulvic Acid — under 1,000 Da</span>
+        <h3><span class="nb">有機JAS認定の</span><span class="nb">高品質フルボ酸</span></h3>
+        <p>土壌中の有機物が長い年月をかけて生成された天然由来の低分子有機酸極めて小さな分子だからこそ角質層を越えて毛包周辺まで届き必要な栄養を“運び”不要なものを“出す”まつ毛が育つための「土台環境」そのものを整える処方の要ですHBKは有機JAS認定の高品質フルボ酸を採用しています</p>
+        <ul class="feat-points">
+          <li>超低分子だから届く毛包深部へのアプローチ</li>
+          <li>ミネラルを抱えて運ぶキレート作用で栄養を的確に届ける</li>
+          <li>毛根まわりの老廃物をクリアにするデトックスサポート</li>
+          <li>他の有効成分のなじみを高める浸透ベースとして機能</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ing-feature rev reveal">
+      <div class="ing-feat-img"><img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/se_00243356_d_cm.jpg" alt="ヒト毛根幹細胞順化培養エキス配合"></div>
+      <div class="ing-feat-txt">
+        <span class="ing-no">02</span>
+        <span class="molecule">Hair Follicle Stem Cell Conditioned Media</span>
+        <h3><span class="nb">ヒト毛根幹細胞</span><span class="nb">順化培養エキス</span></h3>
+        <p>毛根由来の幹細胞を培養する過程で生まれる保湿・コンディショニング成分を豊富に含むうるおいエキスフルボ酸が整えた“土台”に直接働きかけまつ毛本来のハリ・コシをサポートします「整える」から「育てる」へ——今回のリニューアル＋の主役となる成分です</p>
+        <ul class="feat-points">
+          <li>整えられた土台環境にハリ・コシ感をチャージ</li>
+          <li>まつ毛一本一本の“強さ”と“美しさ”を後押し</li>
+          <li>複合ペプチドと組み合わせうるおいを長くキープ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ing-support reveal">
+      <div><h5>複合ペプチド</h5><p>うるおいとハリ感を与えまつ毛と目元の地肌をやさしく保ちます</p></div>
+      <div><h5>低刺激設計</h5><p>毎日使うものだからデリケートな目もとにも配慮した処方に仕上げています</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT ============ -->
+<section class="product pad">
+  <div class="wrap">
+    <div class="sechead center reveal">
+      <span class="eyebrow">The Product</span>
+      <h2 class="title"><span class="nb">筆ペン型の</span><span class="nb">直塗りアプリケーター</span></h2>
+      <p class="body narrow" style="margin-top:22px">まつ毛の生え際にもフィットする筆先で<br>必要な場所へ的確に<br>朝晩のケアに<br>すっと取り入れられる設計です</p>
+    </div>
+    <div class="pg-hero reveal"><img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/hbk_serumplus_06_m.jpg" alt="HBK BY EYESOUND EYELASH SERUM+ 本体とパッケージ"></div>
+    <div class="specs reveal">
+      <span>Eyelash Serum +</span><span>筆ペンタイプ</span><span>朝晩のケアに</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEPS ============ -->
+<section class="steps pad">
+  <div class="wrap">
+    <div class="sechead center reveal">
+      <span class="eyebrow">Mechanism</span>
+      <h2 class="title">4つのステップで<br>“育つ環境”を整える</h2>
+    </div>
+    <div class="narrow">
+      <div class="step reveal"><div class="no">01</div><div><span class="label">Step 1 — Penetrate</span><h4>浸透する</h4><p>超低分子フルボ酸が角質層を越えて毛包深部へリーチ一般成分では届きにくい場所へのアクセスを実現します</p></div></div>
+      <div class="step reveal"><div class="no">02</div><div><span class="label">Step 2 — Reset</span><h4>整える</h4><p>キレート作用と排出促進により毛根まわりの環境をクリーンにリセット蓄積した老廃物を取り除き栄養が届く通り道を開きます</p></div></div>
+      <div class="step reveal"><div class="no">03</div><div><span class="label">Step 3 — Nurture</span><h4>育てる</h4><p>整えられた土台にヒト毛根幹細胞順化培養液エキス・複合ペプチドが働きかける本来のすこやかなサイクルへ導きます</p></div></div>
+      <div class="step reveal"><div class="no">04</div><div><span class="label">Step 4 — Continue</span><h4>継続する</h4><p>土台ケアは一時的な変化ではなく続けるほどに深まるもの環境が整い続けることでまつ毛の印象が本質から変わっていきます</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULT BAND ============ -->
+<div class="result-band reveal">
+  <img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/IMG_6806.JPG" alt="まつ毛・目もとの印象">
+  <div class="cap">
+    <span class="eyebrow">Eye Impression</span>
+    <h3>目もとで<br>印象が変わる</h3>
+  </div>
+</div>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="beforeafter pad" id="beforeafter">
+  <div class="wrap">
+    <div class="sechead center reveal">
+      <span class="eyebrow">Before / After</span>
+      <h2 class="title">変化は目もとに現れる</h2>
+      <p class="body narrow" style="margin-top:22px">継続してご使用いただいた方のまつ毛の変化です</p>
+    </div>
+    <div class="ba-grid one">
+      <div class="ba-pair reveal">
+        <div class="ba-img"><span class="ba-tag before">Before</span><img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/before-1.jpg" alt="使用前のまつ毛"></div>
+        <div class="ba-img"><span class="ba-tag after">After</span><img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/after-2.jpg" alt="使用後のまつ毛"></div>
+      </div>
+    </div>
+    <p class="disclaimer narrow" style="max-width:760px">※ 写真は個人の使用イメージであり、感じ方・変化には個人差があります。化粧品としての使用感・印象の変化に関する表現です。</p>
+  </div>
+</section>
+
+<!-- ============ HOW TO USE ============ -->
+<section class="howto pad">
+  <div class="wrap">
+    <div class="sechead center reveal">
+      <span class="eyebrow">How to Use</span>
+      <h2 class="title">使い方はシンプルに</h2>
+    </div>
+    <div class="grid">
+      <div class="img reveal"><img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/IMG_6805.JPG" alt="まつげ美容液の使い方"></div>
+      <div class="reveal d1">
+        <ul class="usteps">
+          <li><div><h5>清潔な目元に</h5><p>洗顔後メイクや皮脂を落とした清潔な状態でお使いください</p></div></li>
+          <li><div><h5>まつ毛の生え際へ</h5><p>チップになじませ上まつ毛の生え際に沿ってやさしくライン状に塗布します</p></div></li>
+          <li><div><h5>下まつ毛・毛先にも</h5><p>気になる下まつ毛や毛先にも塗りすぎず適量を丁寧に</p></div></li>
+          <li><div><h5>朝晩の習慣に</h5><p>1日2回朝と夜のケアに続けることで土台から整っていきます</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RITUAL BAND ============ -->
+<section class="ritual reveal">
+  <img loading="lazy" decoding="async" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/IMG_6803.JPG" alt="夜のホームケア習慣">
+  <div class="inner">
+    <span class="eyebrow">Daily Ritual</span>
+    <h2>毎日のケアが<br>明日の自分をつくる</h2>
+    <p>特別なことは何もいらない朝と夜ほんの少しの習慣を重ねるだけ続けるほどにまつ毛は“育つ環境”へと整っていきます</p>
+  </div>
+</section>
+
+<!-- ============ OFFER ============ -->
+<section class="offer pad" id="offer">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <p class="sub-offer">おひとり様1回までの特別オファー</p>
+      <h2 class="title" style="color:#fff;margin:14px 0 6px">HBKまつ毛美容液<br>定期コース</h2>
+      <p class="body" style="color:var(--gold-light);max-width:30em;margin:6px auto 0">お得な定期コースで“育てる”を続ける</p>
+    </div>
+    <img loading="lazy" decoding="async" class="offer-prod reveal" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/hbk_serumplus_02_m.jpg" alt="HBK BY EYESOUND EYELASH SERUM+ 本体">
+    <img loading="lazy" decoding="async" class="offer-benefits reveal" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/benefits.jpg" alt="定期コース3大特典：特典1 初回購入10%OFF（通常16,500円が14,850円に）／特典2 2回目以降ずっと15%OFF（14,000円）／特典3 購入回数の縛りなしいつでも解約可能">
+    <div class="offer-cta reveal d1">
+      <a href="#" class="btn btn-fill offer-buy">今すぐお得にはじめてみる <span class="ar">→</span></a>
+    </div>
+    <div class="terms reveal">
+      <p>○ 初回は10%OFFの14,850円（税込・※別途送料）でお届けし、2回目以降は15%OFFの14,000円（税込・※別途送料）でお届けします。</p>
+      <p>○ 2回目は初回ご注文から60日（2ヶ月）ごとに1本お届けします。</p>
+      <p>○ 初回商品の到着後よりいつでもお電話にて解約が可能です。<span class="tel">080-4915-0506</span>（受付時間 14時～17時／土日祝除く）</p>
+      <p>○ お客様からお申し出を頂くまでは契約は自動更新となります。配送予定月の1日が決済のタイミングとなりますので、配送予定月の前月の25日までにご連絡頂く必要があります。（例）次回配送予定が5月15日の場合、4月25日迄にご連絡。</p>
+      <p>○ 送料：800円（※沖縄・離島は2,000円となります）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SINGLE PURCHASE ============ -->
+<section class="single pad" id="single">
+  <div class="wrap narrow center reveal">
+    <span class="eyebrow">Single Purchase</span>
+    <h2 class="title" style="margin-top:16px"><span class="nb">定期に縛られず</span><span class="nb">1本ずつ</span></h2>
+    <p class="body" style="margin-top:20px">まずは試してみたい方へ単品でのご購入も承っています</p>
+    <div class="single-card">
+      <span class="sp-plan">単品購入</span>
+      <p class="sp-name">HBKまつ毛美容液 SERUM＋（1本）</p>
+      <div class="sp-price"><span class="gnum">16,500<span class="yen">円</span></span><span class="tax">（税込）</span></div>
+      <p class="sp-note">※ 別途送料／お届けは1回のみ（自動更新なし）</p>
+      <a href="#" class="btn btn-ink sp-buy">単品を購入する <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq pad">
+  <div class="wrap narrow">
+    <div class="sechead center reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="title">よくあるご質問</h2>
+    </div>
+    <div class="acc reveal">
+      <details><summary><span class="q">Q</span>どのくらいで変化を感じられますか？</summary><div class="a">まつ毛には毛周期(生え変わりのサイクル)があるため、土台ケアは継続が大切です。まずは毛周期にあわせて1〜2ヶ月を目安に、毎日のケアを続けてみてください。感じ方には個人差があります。</div></details>
+      <details><summary><span class="q">Q</span>フルボ酸とは何ですか？安全ですか？</summary><div class="a">フルボ酸は成分吸収力アップと抗炎症効果が期待される天然由来成分です。ヒト毛根幹細胞単体だけでなく、それぞれの有効成分が相互に補完し合うことで、「伸びる」「太くする」をサポートします。また、瞼への負担や「赤み」「ヒリヒリ感」「色素沈着」を避けながら、「増える」「伸びる」「低刺激」を意識した処方となっています。</div></details>
+      <details><summary><span class="q">Q</span>まつ毛エクステやまつ毛パーマ中でも使えますか？</summary><div class="a">はい、まつ毛パーマやまつ毛エクステとの併用も可能です。一条響がこれまで様々なまつ毛美容液を試し続けてきた経験から、まつ毛パーマ・まつ毛エクステとの相性は非常に重要な要素だと判断。まつ毛を育てるだけでなく、その後のメイクの仕上がりまで考えてつくられた商品です。</div></details>
+      <details><summary><span class="q">Q</span>1本でどのくらい使えますか？</summary><div class="a">1日2回(朝・夜)のご使用で、1本およそ2ヶ月分が目安です。定期コースは2ヶ月ごとに1本のお届けで、ちょうど使い切るペースでお届けします。</div></details>
+      <details><summary><span class="q">Q</span>敏感肌でも使えますか？</summary><div class="a">目元のことを考えた処方ですが、肌に合わない場合はご使用を中止してください。心配な方は、目立たない部分でパッチテストを行ってからのご使用をおすすめします。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final pad">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">HBK BY EYE SOUND</span>
+    <p class="lead">与えるだけの美容から“育てる”へ<br>あなたのまつ毛に新しい習慣を</p>
+    <a href="#offer" class="btn btn-ink">定期コースをはじめる <span class="ar">→</span></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap center">
+    <img loading="lazy" decoding="async" class="flogo" src="https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/logo-white.png" alt="HBK BY EYE SOUND">
+    <div class="fnav">
+      <a href="#formula">成分・処方</a>
+      <a href="#offer">定期コース</a>
+      <a href="#">特定商取引法</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">お問い合わせ</a>
+    </div>
+    <p class="legal">本製品は化粧品です。掲載内容は化粧品としての使用感・印象に関する表現であり、医薬品的な効果・効能を保証・標榜するものではありません。効果・使用感には個人差があります。価格・特典・販売条件はキャンペーンにより変更となる場合があります。</p>
+    <p class="copy">© HBK BY EYE SOUND. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY PURCHASE BAR ============ -->
+<div class="stickybar" id="mcta">
+  <div class="sb-inner">
+    <div class="sb-info">
+      <span class="sb-tag">初回限定 10%OFF</span>
+      <span class="sb-price"><span class="gnum">14,850<span class="yen">円</span></span><small class="tax">（税込）</small></span>
+    </div>
+    <a href="#" class="btn btn-fill sb-cta">今すぐ購入する <span class="ar">→</span></a>
+  </div>
+</div>
+
+<script>
+// header solid + mobile cta on scroll
+const hd=document.getElementById('hd'), mcta=document.getElementById('mcta'), hero=document.getElementById('top'), scue=document.querySelector('.scrollcue');
+const onScroll=()=>{
+  const y=window.scrollY;
+  hd.classList.toggle('solid', y>60);
+  if(scue) scue.classList.toggle('hide', y>40);
+};
+window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+// scroll reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<!-- ============ STRUCTURED DATA (SEO / LLMO) ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "HBK BY EYE SOUND フルボ酸まつげ美容液 EYELASH SERUM+",
+  "image": [
+    "https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/hero-pop.jpg",
+    "https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/hbk_serumplus_06_m.jpg"
+  ],
+  "description": "有機JAS認定の高品質フルボ酸と、ヒト毛根幹細胞順化培養エキスを配合。まつ毛は変えるのではなく整えるもの。育つ環境からアプローチし、伸ばす・増やすに加えコシ・ハリまで育てるHBK BY EYE SOUNDのまつげ美容液です。",
+  "brand": { "@type": "Brand", "name": "HBK BY EYE SOUND" },
+  "category": "まつげ美容液",
+  "audience": { "@type": "PeopleAudience", "suggestedGender": "female" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "JPY",
+    "lowPrice": "14000",
+    "highPrice": "16500",
+    "offerCount": "3",
+    "availability": "https://schema.org/InStock",
+    "url": "https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "どのくらいで変化を感じられますか？", "acceptedAnswer": { "@type": "Answer", "text": "まつ毛には毛周期（生え変わりのサイクル）があるため、土台ケアは継続が大切です。まずは毛周期にあわせて1〜2ヶ月を目安に、毎日のケアを続けてみてください。感じ方には個人差があります。" } },
+    { "@type": "Question", "name": "フルボ酸とは何ですか？安全ですか？", "acceptedAnswer": { "@type": "Answer", "text": "フルボ酸は成分吸収力アップと抗炎症効果が期待される天然由来成分です。ヒト毛根幹細胞単体だけでなく、それぞれの有効成分が相互に補完し合うことで、コシ・ハリをサポートします。瞼への負担や赤み・ヒリヒリ感・色素沈着を避けながら、低刺激を意識した処方となっています。" } },
+    { "@type": "Question", "name": "まつ毛エクステやまつ毛パーマ中でも使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、まつ毛パーマやまつ毛エクステとの併用も可能です。まつ毛を育てるだけでなく、その後のメイクの仕上がりまで考えてつくられた商品です。" } },
+    { "@type": "Question", "name": "1本でどのくらい使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "1日2回（朝・夜）のご使用で、1本およそ2ヶ月分が目安です。定期コースは2ヶ月ごとに1本のお届けで、ちょうど使い切るペースでお届けします。" } },
+    { "@type": "Question", "name": "敏感肌でも使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "目元のことを考えた処方ですが、肌に合わない場合はご使用を中止してください。心配な方は、目立たない部分でパッチテストを行ってからのご使用をおすすめします。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "HBK BY EYE SOUND",
+  "url": "https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/",
+  "logo": "https://jiantailanglin266-rgb.github.io/hbk-eyelash-lp/assets/img/logo-black.png"
+}
+</script>
